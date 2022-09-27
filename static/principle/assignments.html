@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Teachers - Glorious Future School</title>
+    <title>Assignments - Glorious Future School</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -266,21 +266,21 @@
         <ul class="sidebar-nav" id="sidebar-nav">
 
             <li class="nav-item">
-                <a class="nav-link " href="dashboard.html">
+                <a class="nav-link collapsed" href="dashboard.html">
                     <i class="bi bi-grid"></i>
                     <span>Dashboard</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="class.html">
+                <a class="nav-link collapsed" href="classes.html">
                     <i class="fa-solid fa-landmark"></i>
                     <span>Classes</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="subject.html">
+                <a class="nav-link collapsed" href="subjects.html">
                     <i class="fa-solid fa-book"></i>
                     <span>Subjects</span>
                 </a>
@@ -290,49 +290,54 @@
 
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="teacher.html">
+                <a class="nav-link collapsed" href="teachers.html">
                     <i class="fa-solid fa-person-chalkboard"></i>
                     <span>Teachers</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="clerk.html">
+                <a class="nav-link collapsed" href="clerks.html">
                     <i class="fa-solid fa-user-pen"></i>
                     <span>Clerks</span>
                 </a>
             </li>
-
             <li class="nav-item">
-                <a class="nav-link collapsed" href="assignment.html">
-                    <i class="fa-solid fa-book"></i>
-                    <span>Assignments</span>
+                <a class="nav-link collapsed" href="timeTable.html">
+                  <i class="fa-solid fa-clock"></i>
+                  <span>Time Table</span>
                 </a>
-            </li>
+              </li>
+              
+              <li class="nav-item">
+                  <a class="nav-link collapsed" href="attendances.html">
+                      <i class="fa-solid fa-user-check"></i>
+                      <span>Attendances</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="assignments.html">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Assignments</span>
+                    </a>
+                </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="attendance.html">
-                    <i class="fa-solid fa-user-check"></i>
-                    <span>Attendance</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="report.html">
+                <a class="nav-link collapsed" href="reports.html">
                     <i class="fa-regular fa-file-word"></i>
                     <span>Reports</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="fee.html">
+                <a class="nav-link collapsed" href="fees.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Fees</span>
                 </a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="salary.html">
+                <a class="nav-link collapsed" href="salaries.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Salaries</span>
                 </a>
@@ -351,16 +356,155 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Teachers</h1>
+            <h1>Assignments</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Teachers</li>
+                    <li class="breadcrumb-item active">Assignments</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
-        <section class="section classes">
+        <section class="section">
+            <!-- Time table assessments bootstrap design -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Assignments</h4>
+                                <div class="table-responsive">
+                                    <table class="table table-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Class</th>
+                                                <th>Subject</th>
+                                                <th>Teacher</th>
+                                                <th>Assignment</th>
+                                                <th>Due Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Grade 1</td>
+                                                <td>English</td>
+                                                <td>Mr. John</td>
+                                                <td>Assignment 1</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 2</td>
+                                                <td>Maths</td>
+                                                <td>Mr. Smith</td>
+                                                <td>Assignment 2</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 3</td>
+                                                <td>Science</td>
+                                                <td>Mr. Anderson</td>
+                                                <td>Assignment 3</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 4</td>
+                                                <td>History</td>
+                                                <td>Mr. Brown</td>
+                                                <td>Assignment 4</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 5</td>
+                                                <td>Geography</td>
+                                                <td>Mr. Jones</td>
+                                                <td>Assignment 5</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 6</td>
+                                                <td>Art</td>
+                                                <td>Mr. Williams</td>
+                                                <td>Assignment 6</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 7</td>
+                                                <td>Music</td>
+                                                <td>Mr. Davis</td>
+                                                <td>Assignment 7</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 8</td>
+                                                <td>Physical Education</td>
+                                                <td>Mr. Miller</td>
+                                                <td>Assignment 8</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 9</td>
+                                                <td>Computer Science</td>
+                                                <td>Mr. Wilson</td>
+                                                <td>Assignment 9</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>Grade 10</td>
+                                                <td>Business Studies</td>
+                                                <td>Mr. Moore</td>
+                                                <td>Assignment 10</td>
+                                                <td>2021-05-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-primary">View</a>
+                                                    <a href="#" class="btn btn-sm btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
     </main><!-- End #main -->
