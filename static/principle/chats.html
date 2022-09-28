@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Reports - Glorious Future School</title>
+    <title>Chats - Glorious Future School</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -31,6 +31,9 @@
     <!-- Template Main CSS File -->
     <link href="../assets/css/style.css" rel="stylesheet">
 
+    <!-- chat.css -->
+    <link href="chat.css" rel="stylesheet">
+
     <!-- fontawesom -->
     <script src="https://kit.fontawesome.com/36a0021949.js" crossorigin="anonymous"></script>
 
@@ -40,7 +43,6 @@
 
     <!-- ======= Header ======= -->
     <header id="header" class="header fixed-top d-flex align-items-center">
-
         <div class="d-flex align-items-center justify-content-between">
             <a href="index.html" class="logo d-flex align-items-center">
                 <img src="../assets/img/logo.png" alt="">
@@ -51,7 +53,6 @@
 
         <nav class="header-nav ms-auto">
             <ul class="d-flex align-items-center">
-
                 <li class="nav-item d-block d-lg-none">
                     <a class="nav-link nav-icon search-bar-toggle " href="#">
                         <i class="bi bi-search"></i>
@@ -59,7 +60,6 @@
                 </li><!-- End Search Icon-->
 
                 <li class="nav-item dropdown">
-
                     <a class="nav-link nav-icon" href="#" data-bs-toggle="dropdown">
                         <i class="bi bi-bell"></i>
                         <span class="badge bg-primary badge-number">4</span>
@@ -325,7 +325,7 @@
             <li class="nav-heading">Reports</li>
             
             <li class="nav-item">
-                <a class="nav-link" href="reports.html">
+                <a class="nav-link collapsed" href="reports.html">
                     <i class="fa-regular fa-file-word"></i>
                     <span>Reports</span>
                 </a>
@@ -355,7 +355,7 @@
             </li>
             
             <li class="nav-item">
-                <a class="nav-link collapsed" href="chats.html">
+                <a class="nav-link" href="chats.html">
                     <i class="fa-solid fa-comments"></i>
                     <span>Chats</span>
                 </a>
@@ -374,52 +374,76 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Reports</h1>
+            <h1>Chats</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Reports</li>
+                    <li class="breadcrumb-item active">Chats</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
         <section class="section">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Report Generater</h4>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="">
-                                    <label for="startDate">Start Date</label>
-                                    <input type="date" class="form-control" id="startDate" name="startDate">
+            <!-- bootstrap card -->
+            <div class="row">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="card-title">School Chats</div>
+                        <div>
+                            <div class="d-flex justify-content-end">
+                                <div class="bg-primary text-light rounded pt-2 px-3 my-2">
+                                    <div class="row">
+                                        <p class="fw-bold col-auto">John Doe</p>
+                                        <p class="float-end text-light col-auto">1 hour ago</p>
+                                    </div>
+                                    <p>Hello, How are you</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="">
-                                    <label for="endDate">End Date</label>
-                                    <input type="date" class="form-control" id="endDate" name="startDate">
+                            <div class="d-flex justify-content-end">
+                                <div class="bg-primary text-light rounded pt-2 px-3 my-2">
+                                    <div class="row">
+                                        <p class="fw-bold col-auto">John Doe</p>
+                                        <p class="float-end text-light col-auto">1 hour ago</p>
+                                    </div>
+                                    <p>Hello, How are you</p>
                                 </div>
                             </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="type">Type</label>
-                                    <select class="form-control" id="type" name="type">
-                                        <option value="1">Assignment</option>
-                                        <option value="2">Attendance</option>
-                                        <option value="3">Fees</option>
-                                        <option value="4">Salary</option>
-                                    </select>
+                            <div class="d-flex justify-content-start">
+                                <div class="bg-light text-dark rounded pt-2 px-3 my-2">
+                                    <div class="row">
+                                        <p class="fw-bold col-auto">John Doe</p>
+                                        <p class="float-end col-auto">1 hour ago</p>
+                                    </div>
+                                    <p>Hello, How are you, i am fine, </p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-end">
+                                <div class="bg-primary text-light rounded pt-2 px-3 my-2">
+                                    <div class="row">
+                                        <p class="fw-bold col-auto">John Doe</p>
+                                        <p class="float-end text-light col-auto">1 hour ago</p>
+                                    </div>
+                                    <p>Hello, How are you</p>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-start">
+                                <div class="bg-light text-dark rounded pt-2 px-3 my-2">
+                                    <div class="row">
+                                        <p class="fw-bold col-auto">John Doe</p>
+                                        <p class="float-end col-auto">1 hour ago</p>
+                                    </div>
+                                    <p>Hello, How are you, i am fine, </p>
                                 </div>
                             </div>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary my-2">Next</button>
+                        <!-- send message -->
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Type your message here">
+                            <button class="btn btn-primary" type="button">Send</button>
                         </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-
         </section>
 
     </main><!-- End #main -->

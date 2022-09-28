@@ -287,8 +287,8 @@
             </li>
 
             <li class="nav-heading">Staff</li>
-
-
+            
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="teachers.html">
                     <i class="fa-solid fa-person-chalkboard"></i>
@@ -302,13 +302,13 @@
                     <span>Clerks</span>
                 </a>
             </li>
+            <li class="nav-heading">Action</li>
             <li class="nav-item">
                 <a class="nav-link" href="timeTable.html">
                     <i class="fa-solid fa-clock"></i>
                     <span>Time Table</span>
                 </a>
             </li>
-
             <li class="nav-item">
                 <a class="nav-link collapsed" href="attendances.html">
                     <i class="fa-solid fa-user-check"></i>
@@ -321,25 +321,43 @@
                     <span>Assignments</span>
                 </a>
             </li>
-
+            
+            <li class="nav-heading">Reports</li>
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="reports.html">
                     <i class="fa-regular fa-file-word"></i>
                     <span>Reports</span>
                 </a>
             </li>
-
+            
+            <li class="nav-heading">Payments</li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="fees.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Fees</span>
                 </a>
             </li>
-
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="salaries.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Salaries</span>
+                </a>
+            </li>
+
+            <li class="nav-heading">Others</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="news.html">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="chats.html">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Chats</span>
                 </a>
             </li>
 
@@ -366,13 +384,28 @@
         </div><!-- End Page Title -->
 
         <section class="section">
-            <!-- Time table assessments bootstrap design -->
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
                                 <h4 class="card-title">Time Table of School</h4>
+                                <div class="my-2">
+                                    Class: &nbsp;
+                                    <select class="btn border" name="classes" id="">
+                                        <option value="10B">Class 10th (Boys)</option>
+                                        <option value="10G">Class 10th (Girls)</option>
+                                        <option value="9">Class 9th</option>
+                                    </select>
+                                    <button type="button" class="btn btn-primary mx-1 float-end" data-bs-toggle="modal"
+                                    data-bs-target="#editPeriodModal">
+                                    Edit <i class="fa-solid fa-edit"></i>
+                                </button>
+                                <button type="button" class="btn btn-primary mx-1 float-end visually-hidden" data-bs-toggle="modal"
+                                    data-bs-target="#addPeriodModal">
+                                    Add Period <i class="fa-solid fa-plus"></i>
+                                </button>
+                                </div>
                                 <!-- Time table in bootstrap -->
                                 <div class="table-responsive">
                                     <table class="table table-bordered">
@@ -390,63 +423,448 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <th scope="row">Monday</th>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
-                                                <td>History</td>
-                                                <td>Geography</td>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
+                                            <th scope="row">Monday</th>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
+                                            <td>
+                                                <select class="form-control">
+                                                    <option>Maths</option>
+                                                    <option>English</option>
+                                                    <option>Science</option>
+                                                    <option>History</option>
+                                                    <option>Geography</option>
+                                                </select>
+                                            </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Tuesday</th>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
-                                                <td>History</td>
-                                                <td>Geography</td>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Wednesday</th>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
-                                                <td>History</td>
-                                                <td>Geography</td>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Thursday</th>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
-                                                <td>History</td>
-                                                <td>Geography</td>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <th scope="row">Friday</th>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
-                                                <td>History</td>
-                                                <td>Geography</td>
-                                                <td>Maths</td>
-                                                <td>English</td>
-                                                <td>Science</td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select class="form-control">
+                                                        <option>Maths</option>
+                                                        <option>English</option>
+                                                        <option>Science</option>
+                                                        <option>History</option>
+                                                        <option>Geography</option>
+                                                    </select>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <!-- new borderless table two columns -->
+                                    <table class="table table-borderless w-75">
+                                        <!-- thead -->
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Subject</th>
+                                                <th scope="col">Teacher</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    Math
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>Mr. John</option>
+                                                            <option>Mr. Smith</option>
+                                                            <option>Mr. Jones</option>
+                                                            <option>Mr. Brown</option>
+                                                            <option>Mr. Williams</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Math
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>Mr. John</option>
+                                                            <option>Mr. Smith</option>
+                                                            <option>Mr. Jones</option>
+                                                            <option>Mr. Brown</option>
+                                                            <option>Mr. Williams</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    Math
+                                                </td>
+                                                <td>
+                                                    <div class="form-group">
+                                                        <select class="form-control" id="exampleFormControlSelect1">
+                                                            <option>Mr. John</option>
+                                                            <option>Mr. Smith</option>
+                                                            <option>Mr. Jones</option>
+                                                            <option>Mr. Brown</option>
+                                                            <option>Mr. Williams</option>
+                                                        </select>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                
+                                    <button type="button" class="btn btn-danger float-end">Cancel</button>
+                                    <button type="button" class="btn btn-primary mx-1 float-end" data-bs-toggle="modal"
+                                        data-bs-target="#savePeriodModal">
+                                        Save Changes <i class="fa-solid fa-save"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>

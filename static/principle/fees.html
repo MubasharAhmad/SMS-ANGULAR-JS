@@ -287,8 +287,8 @@
             </li>
 
             <li class="nav-heading">Staff</li>
-
-
+            
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="teachers.html">
                     <i class="fa-solid fa-person-chalkboard"></i>
@@ -302,44 +302,62 @@
                     <span>Clerks</span>
                 </a>
             </li>
+            <li class="nav-heading">Action</li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="timeTable.html">
-                  <i class="fa-solid fa-clock"></i>
-                  <span>Time Table</span>
+                    <i class="fa-solid fa-clock"></i>
+                    <span>Time Table</span>
                 </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link collapsed" href="attendances.html">
-                      <i class="fa-solid fa-user-check"></i>
-                      <span>Attendances</span>
-                  </a>
-              </li>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="attendances.html">
+                    <i class="fa-solid fa-user-check"></i>
+                    <span>Attendances</span>
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="assignments.html">
                     <i class="fa-solid fa-book"></i>
                     <span>Assignments</span>
                 </a>
             </li>
-
-
+            
+            <li class="nav-heading">Reports</li>
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="reports.html">
                     <i class="fa-regular fa-file-word"></i>
                     <span>Reports</span>
                 </a>
             </li>
-
+            
+            <li class="nav-heading">Payments</li>
             <li class="nav-item">
                 <a class="nav-link" href="fees.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Fees</span>
                 </a>
             </li>
-
+            
             <li class="nav-item">
                 <a class="nav-link collapsed" href="salaries.html">
                     <i class="fa-solid fa-money-check-dollar"></i>
                     <span>Salaries</span>
+                </a>
+            </li>
+
+            <li class="nav-heading">Others</li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="news.html">
+                    <i class="fa-solid fa-newspaper"></i>
+                    <span>News</span>
+                </a>
+            </li>
+            
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="chats.html">
+                    <i class="fa-solid fa-comments"></i>
+                    <span>Chats</span>
                 </a>
             </li>
 
@@ -366,8 +384,69 @@
         </div><!-- End Page Title -->
 
         <section class="section">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Pay Fees Online</h4>
+                    <form>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentName">Student Name</label>
+                                    <input type="text" class="form-control" id="studentName" placeholder="Student Name">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentRoll">Student Roll Number</label>
+                                    <input type="text" class="form-control" id="studentRoll"
+                                        placeholder="Student Roll Number">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentClass">Class</label>
+                                    <!-- select -->
+                                    <select class="form-control" id="studentClass">
+                                        <option>Class 1</option>
+                                        <option>Class 2</option>
+                                        <option>Class 3</option>
+                                        <option>Class 4</option>
+                                        <option>Class 5</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentFees">Total Fees Payable</label>
+                                    <input type="text" class="form-control" id="studentFees" placeholder="0.000" value="0.00" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentPaid">Paid</label>
+                                    <input type="text" class="form-control  " id="studentPaid" placeholder="Paid">
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="studentNote">Note (Optional)</label>
+                                    <input type="text" class="form-control" id="studentNote" placeholder="Note">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- center item -->
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary my-2">Pay</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
-
     </main><!-- End #main -->
 
     <!-- ======= Footer ======= -->

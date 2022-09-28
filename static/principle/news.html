@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Reports - Glorious Future School</title>
+    <title>News - Glorious Future School</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -325,7 +325,7 @@
             <li class="nav-heading">Reports</li>
             
             <li class="nav-item">
-                <a class="nav-link" href="reports.html">
+                <a class="nav-link collapsed" href="reports.html">
                     <i class="fa-regular fa-file-word"></i>
                     <span>Reports</span>
                 </a>
@@ -348,7 +348,7 @@
 
             <li class="nav-heading">Others</li>
             <li class="nav-item">
-                <a class="nav-link collapsed" href="news.html">
+                <a class="nav-link" href="news.html">
                     <i class="fa-solid fa-newspaper"></i>
                     <span>News</span>
                 </a>
@@ -374,52 +374,52 @@
     <main id="main" class="main">
 
         <div class="pagetitle">
-            <h1>Reports</h1>
+            <h1>News</h1>
             <nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                    <li class="breadcrumb-item active">Reports</li>
+                    <li class="breadcrumb-item active">News</li>
                 </ol>
             </nav>
         </div><!-- End Page Title -->
 
         <section class="section">
-            <div class="card">
-                <div class="card-body">
-                    <h4 class="card-title">Report Generater</h4>
-                    <form>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="">
-                                    <label for="startDate">Start Date</label>
-                                    <input type="date" class="form-control" id="startDate" name="startDate">
+            <!-- add news with images -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Add News</h4>
+                            <form action="news.html" method="post" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Title</label>
+                                            <input type="text" class="form-control" name="title" placeholder="Title">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Description</label>
+                                            <textarea class="form-control" name="description" rows="5"
+                                                placeholder="Description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <label class="form-label">Image</label>
+                                            <input type="file" class="form-control" name="image">
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-end">
+                                        <button type="submit" class="btn btn-primary my-2">Add</button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="">
-                                    <label for="endDate">End Date</label>
-                                    <input type="date" class="form-control" id="endDate" name="startDate">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="type">Type</label>
-                                    <select class="form-control" id="type" name="type">
-                                        <option value="1">Assignment</option>
-                                        <option value="2">Attendance</option>
-                                        <option value="3">Fees</option>
-                                        <option value="4">Salary</option>
-                                    </select>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary my-2">Next</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
-
         </section>
 
     </main><!-- End #main -->
