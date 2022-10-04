@@ -1,37 +1,303 @@
-<div class="flex h-screen bg-gray-100">
-  <div class="m-auto md:w-1/3">
-    <div class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 flex flex-col my-2">
-      <h1 class="text-center text-4xl">Home</h1>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="username">
-          Username
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-          id="username" type="text" placeholder="Username">
+<div class="relative overflow-hidden bg-white">
+  <div class="mx-auto max-w-7xl">
+    <div class="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
+      <svg class="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
+        fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+        <polygon points="50,0 100,0 50,100 0,100" />
+      </svg>
+      <div>
+        <div class="relative px-4 pt-6 sm:px-6 lg:px-8">
+          <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+            <div class="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
+              <div class="flex w-full items-center justify-between md:w-auto">
+                <a href="#">
+                  <span class="sr-only">Your Company</span>
+                  <img alt="Your Company" class="h-8 w-auto sm:h-10" src="../../../assets/images/logo.png">
+                </a>
+                <div class="-mr-2 flex items-center md:hidden">
+                  <button type="button"
+                    class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                    aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <!-- Heroicon name: outline/bars-3 -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                      stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+              <a routerLink="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
+
+              <a href="#about" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
+
+              <a href="#contact" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+
+              <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+            </div>
+          </nav>
+        </div>
+        <div class="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden">
+          <div class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+            <div class="flex items-center justify-between px-5 p-4">
+              <div>
+                <img class="h-8 w-auto" src="../../../assets/images/logo.png" alt="">
+              </div>
+              <div class="-mr-2">
+                <button type="button" (click)="toggle()"
+                  class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                  <span class="sr-only">Close main menu</span>
+                  <i class="fas fa-times {{ vis?'':'hidden' }}"></i>
+                  <i class="fas fa-bars {{ vis?'hidden':'' }}"></i>
+                </button>
+              </div>
+            </div>
+            <div class="{{ vis?'':'hidden' }}">
+              <div class="space-y-1 px-2 pt-2 pb-3">
+                <a href="#"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Home</a>
+  
+                <a href="#"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">About Us</a>
+  
+                <a href="#"
+                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Contact Us</a>
+              </div>
+              <a href="#"
+                class="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100">Log
+                in</a>
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-          Password
-        </label>
-        <input
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-          id="password" type="password" placeholder="******************">
-        <p class="text-red-500 text-xs italic hidden">Please choose a password.</p>
-      </div>
-      <div class="flex items-center justify-between">
-        <button
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-          type="button">
-          Sign In
-        </button>
-        <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="#">
-          Forgot Password?
-        </a>
+
+      <main class="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+        <div class="sm:text-center lg:text-left">
+          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+            <span class="block xl:inline">Data to enrich your</span>
+            <span class="block text-indigo-600 xl:inline">online business</span>
+          </h1>
+          <p class="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
+            fugiat veniam occaecat fugiat aliqua.</p>
+          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+            <div class="rounded-md shadow">
+              <a routerLink="/register"
+                class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Get
+                started</a>
+            </div>
+
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
+      src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+      alt="">
+  </div>
+</div>
+
+<!-- about us -->
+<div class="bg-white" id="about">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">About Us</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in,
+        accusamus quisquam.
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo necessitatibus neque.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+        <li>
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <i class="fas fa-chart-line"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5>
+              <p class="mt-2 text-base text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <i class="fas fa-globe"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5>
+              <p class="mt-2 text-base text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <i class="fas fa-lock"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5>
+              <p class="mt-2 text-base text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+              </p>
+            </div>
+          </div>
+        </li>
+        <li class="mt-10 md:mt-0">
+          <div class="flex">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                <i class="fas fa-mobile-alt"></i>
+              </div>
+            </div>
+            <div class="ml-4">
+              <h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5>
+              <p class="mt-2 text-base text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+              </p>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- contact us -->
+<div class="bg-gray-50" id="contact">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="lg:text-center">
+      <h2 class="text-base text-indigo-600 font-semibold tracking-wide uppercase">Contact Us</h2>
+      <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Possimus magnam voluptatum cupiditate veritatis in,
+        accusamus quisquam.
+      </p>
+      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur explicabo necessitatibus neque.
+      </p>
+    </div>
+
+    <div class="mt-10">
+      <div class="md:grid md:grid-cols-2 md:gap-8">
+        <div>
+          <div class="mt-10">
+            <dl class="space-y-10">
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  Phone
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  +1 (555) 123-4567
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  Email
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  someone@gmail.com
+                </dd>
+              </div>
+              <div>
+                <dt class="text-lg leading-6 font-medium text-gray-900">
+                  Address
+                </dt>
+                <dd class="mt-2 text-base text-gray-500">
+                  1234 Main St, Anytown, CA 12345
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+        <div class="mt-10 md:mt-0">
+          <form action="#" method="POST">
+            <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+              <div>
+                <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+                <div class="mt-1">
+                  <input type="text" name="first_name" id="first_name" autocomplete="given-name"
+                    class="py-3 px-4 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+              </div>
+              <div>
+                <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+                <div class="mt-1">
+                  <input type="text" name="last_name" id="last_name" autocomplete="family-name"
+                    class="py-3 px-4 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <div class="mt-1">
+                  <input id="email" name="email" type="email" autocomplete="email"
+                    class="py-3 px-4 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                <div class="mt-1">
+                  <textarea id="message" name="message" rows="4"
+                    class="py-3 px-4 block w-full shadow-sm sm:text-sm border border-gray-300 rounded-md"></textarea>
+                </div>
+              </div>
+              <div class="sm:col-span-2">
+                <button type="submit"
+                  class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 first-letter:indigo-500">
+                  Send
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-    <p class="text-center text-gray-500 text-xs">
-      &copy;2020 Acme Corp. All rights reserved.
+  </div>
+</div>
+
+<!-- advanced footer -->
+<div class="bg-gray-50">
+  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+    <div class="mt-8 flex justify-center space-x-6">
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Facebook</span>
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Twitter</span>
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">Instagram</span>
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="#" class="text-gray-400 hover:text-gray-500">
+        <span class="sr-only">LinkedIn</span>
+        <i class="fab fa-linkedin-in"></i>
+      </a>
+    </div>
+    <p class="mt-8 text-center text-base text-gray-400">
+      &copy; 2021 Company, Inc. All rights reserved.
     </p>
   </div>
 </div>
+

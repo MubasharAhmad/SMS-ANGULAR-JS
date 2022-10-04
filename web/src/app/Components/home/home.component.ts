@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  vis:boolean = false;
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggle(){
+    this.vis = !this.vis;
   }
 
 }
