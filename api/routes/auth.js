@@ -5,7 +5,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
-const { sendMail } = require('send-email-api');
+// const { sendMail } = require('send-email-api');
 
 const JWT_SECRET = "SMS-SCHOOL-MANAGEMENT-SYSTEM-SECRET-KEY";
 
@@ -34,31 +34,6 @@ router.post(
             const { data } = await axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=9bd9f51f3f98494fa65c2253a079282f&email=${req.body.email}`);
             if (data.is_smtp_valid.value !== true) {
                 return res.status(400).json({ success, msg: "Email does not exist" });
-            }
-
-            // send email using send-email-api
-            try {
-                const emailConfig = {
-                    options: {
-                        host: '2020cs34@student.uet.edu.pk',
-                        auth: {
-                            user: 'Mubashar Ahmad Muhammad Ismail',
-                            pass: 'Mubashar@cs34',
-                        }
-                    },
-                    from: '2020cs34@student.uet.edu.pk',
-                }
-                const emailData = {
-                    to: [req.body.email],
-                    subject: 'Register Account',
-                    html: '<h3>hello world!</h3>',
-                    text: 'hello world!'
-                }
-                const data = await sendMail(emailData, emailConfig)
-                console.log(data)
-            } catch (error) {
-                console.error(error)
-                return res.status(500).json({ success, msg: "Internal Server Error" });
             }
 
             // encrypt password

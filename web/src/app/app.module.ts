@@ -9,6 +9,8 @@ import { HomeComponent } from './Components/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LogoComponent } from './Components/logo/logo.component';
+import { FormsModule } from '@angular/forms';
+import { AlertComponent } from './Components/alert/alert.component';
 
 
 @NgModule({
@@ -19,11 +21,13 @@ import { LogoComponent } from './Components/logo/logo.component';
     HomeComponent,
     NavbarComponent,
     LogoComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
