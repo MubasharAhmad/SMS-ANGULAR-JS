@@ -91,6 +91,13 @@ export class RegisterComponent implements OnInit {
           this.alertHidden = "hidden";
         }, 4000);
       }
+      else{
+        this.alertMessage = "Varify your account through email";
+        this.alertHidden = "";
+        setTimeout(() => {
+          this.alertHidden = "hidden";
+        }, 4000);
+      }
     }
   }
 

@@ -1,15 +1,28 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const axios = require("axios");
-// const { sendMail } = require('send-email-api');
+const nodeMailer = require("nodemailer");
+
+const User = require("../models/User");
 
 const JWT_SECRET = "SMS-SCHOOL-MANAGEMENT-SYSTEM-SECRET-KEY";
 
-// @route   POST api/auth/register
+// for email sender
+const Transporter_Email = "tajammalmaqbool11@gmail.com";
+const Trasnporter_Password = "tvlpnhkiukgtzaxp";
+const transporter = nodeMailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: Transporter_Email,
+        pass: Trasnporter_Password
+    }
+});
+
+
+//  POST api/auth/register
 router.post(
     "/register",
     [
@@ -36,7 +49,7 @@ router.post(
                 return res.status(400).json({ success, msg: "Email does not exist" });
             }
 
-            // encrypt password
+            // encrypt password using bcrypto
             const salt = await bcrypt.genSalt(10);
             const securedPassword = await bcrypt.hash(req.body.password, salt);
 
@@ -47,6 +60,22 @@ router.post(
                 password: securedPassword
             });
             await user.save();
+
+            // send email to user
+            const mailOptions = {
+                from: Transporter_Email,
+                to: req.body.email,
+                subject: "Welcome to SMS",
+                text: "Your account has been created successfully"
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.status(500).send({ success, msg: "Internal Server Error" });
+                }
+            });
+
+
             success = true;
             const dt = {
                 user: {
@@ -57,12 +86,12 @@ router.post(
             res.json({ success, authToken });
         } catch (error) {
             console.error(error.message);
-            res.status(500).send("Internal Server Error");
+            res.status(500).send({ success, msg: "Internal Server Error" });
         }
     });
 
 
-// @route   POST api/auth/login
+// POST api/auth/login
 router.post(
     "/login",
     [
@@ -80,11 +109,27 @@ router.post(
             if (!user) {
                 return res.status(400).json({ success, msg: "Invalid Credentials" });
             }
+            // bcrypto decrypt password
             const passwordCompare = await bcrypt.compare(req.body.password, user.password);
-            if (!passwordCompare) {
+            if (!passwordCompare) {     
                 return res.status(400).json({ success, msg: "Invalid Credentials" });
             }
             success = true;
+
+            // send email to user
+            const mailOptions = {
+                from: Transporter_Email,
+                to: req.body.email,
+                subject: "Welcome to SMS",
+                text: "You have logged in to SMS"
+            };
+            transporter.sendMail(mailOptions, function (error, info) {
+                if (error) {
+                    console.log(error);
+                    res.status(500).send({ success, msg: "Internal Server Error" });
+                }
+            });
+
             const data = {
                 user: {
                     id: user.id
@@ -94,7 +139,7 @@ router.post(
             res.json({ success, authToken });
         } catch (error) {
             console.error(error.message);
-            res.status(500).send("Internal Server Error");
+            res.status(500).send({ success, msg: "Internal Server Error" });
         }
     });
 
