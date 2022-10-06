@@ -8,7 +8,12 @@ const UserSchema = new Schema({
     },
     email: {
         type: String,
+        unique: true,
         required: true
+    },
+    isActived: {
+        type: Boolean,
+        default: false
     },
     password: {
         type: String,

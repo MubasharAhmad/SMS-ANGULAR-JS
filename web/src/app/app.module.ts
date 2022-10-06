@@ -11,6 +11,7 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LogoComponent } from './Components/logo/logo.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './Components/alert/alert.component';
+import { ActivateAccountComponent } from './Components/activate-account/activate-account.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { AlertComponent } from './Components/alert/alert.component';
     NavbarComponent,
     LogoComponent,
     AlertComponent,
+    ActivateAccountComponent,
   ],
   imports: [
     BrowserModule,
