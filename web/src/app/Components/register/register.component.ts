@@ -9,6 +9,7 @@ export class RegisterComponent implements OnInit {
 
   alertHidden:string = "hidden";
   alertMessage:string = "Registration Successful";
+  alertType:string = "primary";
 
   nameError: string = "";
   emailError: string = "";

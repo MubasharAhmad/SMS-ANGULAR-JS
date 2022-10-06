@@ -17,4 +17,8 @@ export class HomeComponent implements OnInit {
     this.vis = !this.vis;
   }
 
+  onSubmit(){
+    
+  }
+
 }

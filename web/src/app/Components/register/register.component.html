@@ -1,6 +1,6 @@
-<app-alert class="{{alertHidden}}" [message]="alertMessage"></app-alert>
+<app-alert class="{{alertHidden}}" message="{{alertMessage}}" type="{{alertType}}"></app-alert>
 <div class="flex items-center min-h-screen p-6 bg-gray-100">
-    <div class="flex-1 h-full max-w-2xl mx-auto overflow-hidden">
+    <div class="flex-1 h-full max-w-xl mx-auto overflow-hidden">
         <app-logo></app-logo>
         <div class="flex flex-col overflow-y-auto bg-white rounded-lg shadow">
             <div class="flex items-center justify-center px-12 pt-6 pb-4">
@@ -9,44 +9,44 @@
                         <h1 class="text-center text-4xl">Signup</h1>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="name">
-                                Name<span class="text-red-500">*</span>
+                                Name<span class="text-danger">*</span>
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 mb-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="name" name="name" [(ngModel)]="name" type="text" placeholder="someone">
-                            <p class="text-red-500 text-xs italic">{{nameError}}</p>
+                            <p class="text-danger text-xs italic">{{nameError}}</p>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                                Email<span class="text-red-500">*</span>
+                                Email<span class="text-danger">*</span>
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 mb-1 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="email" name="email" [(ngModel)]="email" type="email" placeholder="someone@gmail.com">
-                            <p class="text-red-500 text-xs italic">{{emailError}}</p>
+                            <p class="text-danger text-xs italic">{{emailError}}</p>
                         </div>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                                Password<span class="text-red-500">*</span>
+                                Password<span class="text-danger">*</span>
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="password" name="password" [(ngModel)]="password" type="password"
                                 placeholder="******************">
-                            <p class="text-red-500 text-xs italic">{{passwordError}}</p>
+                            <p class="text-danger text-xs italic">{{passwordError}}</p>
                         </div>
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="cpassword">
                                 Confirm Password
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="cpassword" name="cpassword" [(ngModel)]="cpassword" type="password"
                                 placeholder="******************">
-                            <p class="text-red-500 text-xs italic">{{cpasswordError}}</p>
+                            <p class="text-danger text-xs italic">{{cpasswordError}}</p>
                         </div>
                         <button
-                            class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            class="block w-full btn btn-primary"
                             type="submit">
                             Sign up
                         </button>

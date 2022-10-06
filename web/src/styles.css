@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
+
+.primary {
+  @apply bg-indigo-100 border border-indigo-400 text-indigo-700;
+}
+
+.success {
+  @apply bg-green-100 border border-green-400 text-green-700;
+}
+
+.danger {
+  @apply bg-red-100 border border-red-400 text-red-700;
+}
+
+.text-danger {
+  @apply text-red-500;
+}
+
+.btn {
+  @apply font-bold py-3 px-4 rounded shadow-gray-400 shadow-md focus:outline-none;
+}
+
+.btn-primary {
+  @apply bg-indigo-600 hover:bg-indigo-700 text-white;
+}
+
+.btn-danger {
+  @apply bg-red-600 hover:bg-red-700 text-white;
+}
+
+.form-control {
+  @apply py-3 px-4 block bg-gray-100 w-full shadow-md sm:text-sm outline-indigo-700 rounded-md;
+}
+
+.textarea {
+  @apply py-3 px-4 block w-full bg-gray-100 shadow-md sm:text-sm border outline-indigo-700 rounded-md;
+}
+
 @tailwind utilities;

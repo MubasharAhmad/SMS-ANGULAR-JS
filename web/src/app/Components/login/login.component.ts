@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   password: string = "";
   alertHidden: string = "hidden";
   alertMessage: string = "";
+  alertType:string = "primary";
   emailError: string = "";
   pwdError: string = "";
 

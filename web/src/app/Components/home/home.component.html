@@ -82,8 +82,8 @@
             <span class="block text-indigo-600 xl:inline">Glorious Future School</span>
           </h1>
           <p class="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat aliqua.</p>
+            Empowering developing communities to become sustainable through quality education and related community activities. Children are at the heart of everything we do.
+          </p>
           <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
             <div class="rounded-md shadow">
               <a routerLink="/register"
@@ -247,39 +247,39 @@
           </div>
         </div>
         <div class="mt-10 md:mt-0">
-          <form action="#" method="POST">
+          <form (ngSubmit)="onSubmit()">
             <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
               <div>
                 <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
                 <div class="mt-1">
                   <input type="text" name="first_name" id="first_name" autocomplete="given-name"
-                    class="py-3 px-4 block bg-gray-100 w-full shadow-sm sm:text-sm border-gray-700 rounded-md">
+                    class="form-control" placeholder="First Name">
                 </div>
               </div>
               <div>
                 <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
                 <div class="mt-1">
                   <input type="text" name="last_name" id="last_name" autocomplete="family-name"
-                    class="py-3 px-4 block bg-gray-100 w-full shadow-sm sm:text-sm border-gray-700 rounded-md">
+                    class="form-control" placeholder="Last Name">
                 </div>
               </div>
               <div class="sm:col-span-2">
                 <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
                 <div class="mt-1">
                   <input id="email" name="email" type="email" autocomplete="email"
-                    class="py-3 px-4 block bg-gray-100 w-full shadow-sm sm:text-sm border-gray-700 rounded-md">
+                    class="form-control" placeholder="i.e. someone@gmail.com">
                 </div>
               </div>
               <div class="sm:col-span-2">
                 <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                 <div class="mt-1">
                   <textarea id="message" name="message" rows="4"
-                    class="py-3 px-4 block w-full bg-gray-100 shadow-sm sm:text-sm border border-gray-700 rounded-md"></textarea>
+                    class="textarea" placeholder="your message here..."></textarea>
                 </div>
               </div>
               <div class="sm:col-span-2">
                 <button type="submit"
-                  class="w-full inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 first-letter:indigo-500">
+                  class="w-full inline-flex justify-center py-3 btn btn-primary">
                   Send
                 </button>
               </div>

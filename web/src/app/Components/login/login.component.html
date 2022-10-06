@@ -1,6 +1,6 @@
-<app-alert class="{{alertHidden}}" [message]="alertMessage"></app-alert>
+<app-alert class="{{alertHidden}}" message="{{alertMessage}}" type="{{alertType}}"></app-alert>
 <div class="flex items-center min-h-screen p-6 bg-gray-100">
-    <div class="flex-1 h-full max-w-2xl mx-auto overflow-hidden">
+    <div class="flex-1 h-full max-w-xl mx-auto overflow-hidden">
         <app-logo></app-logo>
         <div class="flex flex-col overflow-y-auto bg-white rounded-lg shadow">
             <div class="flex items-center justify-center px-12 pt-6 pb-4">
@@ -9,29 +9,29 @@
                         <h1 class="text-center text-4xl">Login</h1>
                         <div class="mb-4">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="email">
-                                Email<span class="text-red-500">*</span>
+                                Email<span class="text-danger">*</span>
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="email" type="email" name="email" [(ngModel)]="email" placeholder="someone@gmail.com">
-                            <div class="text-red-500 text-xs italic">{{emailError}}</div>
+                            <div class="text-danger text-xs italic">{{emailError}}</div>
                         </div>
                         <div class="mb-6">
                             <label class="block text-gray-700 text-sm font-bold mb-2" for="password">
-                                Password<span class="text-red-500">*</span>
+                                Password<span class="text-danger">*</span>
                             </label>
                             <input
-                                class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                                class="form-control"
                                 id="password" type="password" name="password" [(ngModel)]="password"
                                 placeholder="******************">
-                            <div class="text-red-500 text-xs italic">{{pwdError}}</div>
+                            <div class="text-danger text-xs italic">{{pwdError}}</div>
                         </div>
                         <a class="inline-block align-baseline py-2 font-bold text-sm text-indigo-500 hover:text-indigo-800"
-                            href="#">
+                            routerLink="/resetpassword">
                             Forgot Password?
                         </a>
                         <button
-                            class="block w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                            class="btn btn-primary block w-full"
                             type="submit">
                             Sign In
                         </button>
@@ -39,7 +39,7 @@
                         <div class="flex justify-center mt-4">
                             <a class="inline-block align-baseline text-center font-bold text-sm text-indigo-500 hover:text-indigo-800"
                                 routerLink="/register">
-                                Already have not an account? Register
+                                Not have an account? Register
                             </a>
                         </div>
                     </form>

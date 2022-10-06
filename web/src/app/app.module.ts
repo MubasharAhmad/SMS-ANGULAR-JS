@@ -12,6 +12,8 @@ import { LogoComponent } from './Components/logo/logo.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './Components/alert/alert.component';
 import { ActivateAccountComponent } from './Components/activate-account/activate-account.component';
+import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
+import { ChangePasswordComponent } from './Components/change-password/change-password.component';
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import { ActivateAccountComponent } from './Components/activate-account/activate
     LogoComponent,
     AlertComponent,
     ActivateAccountComponent,
+    ResetPasswordComponent,
+    ChangePasswordComponent,
   ],
   imports: [
     BrowserModule,
