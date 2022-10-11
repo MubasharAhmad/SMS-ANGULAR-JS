@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
 
   email: string = "";
   password: string = "";
-  alertHidden: string = "hidden";
+  isAlertHidden: boolean = true;
   alertMessage: string = "";
   alertType:string = "primary";
   emailError: string = "";
@@ -55,10 +55,11 @@ export class LoginComponent implements OnInit {
         window.location.href = "/";
       }
       else {
-        this.alertHidden = "";
+        this.alertType = "danger";
+        this.isAlertHidden = false;
         this.alertMessage = res.msg;
         setTimeout(() => {
-          this.alertHidden = "hidden";
+          this.isAlertHidden = true;
         }, 4000);
       }
     }

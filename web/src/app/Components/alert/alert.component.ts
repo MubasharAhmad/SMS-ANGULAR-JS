@@ -7,7 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AlertComponent implements OnInit {
 
-  @Input() message: string;
+  @Input() isHidden: boolean = true;
+  @Input() message: string = "";
   @Input() type: string = "success";
   constructor() {
     this.message = "";
@@ -16,12 +17,7 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  // parent scope function 
-   parentScopeFunction() {
-     this.message = "";
-   }
-
   onClose() {
-    this.message = "";
+    this.isHidden = true;
   }
 }

@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  alertHidden:string = "hidden";
+  isAlertHidden:boolean = true;
   alertMessage:string = "";
   email:string = "";
   emailError:string = "";

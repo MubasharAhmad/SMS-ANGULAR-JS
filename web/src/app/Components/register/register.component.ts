@@ -7,9 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  alertHidden:string = "hidden";
-  alertMessage:string = "Registration Successful";
-  alertType:string = "primary";
+  isAlertHidden: boolean = true;
+  alertMessage: string = "Registration Successful";
+  alertType: string = "primary";
 
   nameError: string = "";
   emailError: string = "";
@@ -85,18 +85,20 @@ export class RegisterComponent implements OnInit {
         })
       })
       let res = await data.json();
-      if (!res.success){
+      if (!res.success) {
+        this.alertType = "danger";
         this.alertMessage = res.msg;
-        this.alertHidden = "";
+        this.isAlertHidden = true;
         setTimeout(() => {
-          this.alertHidden = "hidden";
+          this.isAlertHidden = false;
         }, 4000);
       }
-      else{
+      else {
+        this.alertType = "scuccess";
         this.alertMessage = "Varify your account through email";
-        this.alertHidden = "";
+        this.isAlertHidden = true;
         setTimeout(() => {
-          this.alertHidden = "hidden";
+          this.isAlertHidden = false;
         }, 4000);
       }
     }
