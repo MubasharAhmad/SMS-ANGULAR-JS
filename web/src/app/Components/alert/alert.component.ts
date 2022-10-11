@@ -16,4 +16,12 @@ export class AlertComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  // parent scope function 
+   parentScopeFunction() {
+     this.message = "";
+   }
+
+  onClose() {
+    this.message = "";
+  }
 }

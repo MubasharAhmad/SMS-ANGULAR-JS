@@ -1,3 +1,8 @@
-<div class="{{type}} px-2 py-1 md:px-4 md:py-3 right-4 top-4 rounded absolute" role="alert">
-  <span class="block sm:inline">{{message}}</span>
+<div class="{{type}} animate-bounce px-2 py-1 md:px-4 md:py-3 right-4 top-4 rounded absolute" role="alert">
+  <span class="block sm:inline">{{message}}
+    <!-- close button -->
+    <button class="ml-2 border-indigo-500 font-semibold" (click)="onClose()">
+      <i class="fas fa-times"></i>
+    </button>
+  </span>
 </div>
