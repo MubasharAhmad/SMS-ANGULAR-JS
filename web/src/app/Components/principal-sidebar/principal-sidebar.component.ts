@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-principal-sidebar',
@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class PrincipalSidebarComponent implements OnInit {
 
   @Output() onHeadingChanged: EventEmitter<string> = new EventEmitter<string>();
+  @Input() hidden: string = 'hidden';
   constructor() { }
 
   ngOnInit(): void {

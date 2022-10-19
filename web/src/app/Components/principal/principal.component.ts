@@ -7,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
 export class PrincipalComponent implements OnInit {
 
   heading: string = "Dashboard";
+  sideBarHide: string = 'hidden';
   constructor() { }
 
   ngOnInit(): void {
@@ -14,6 +15,10 @@ export class PrincipalComponent implements OnInit {
 
   changeHeading(heading: string) {
     this.heading = heading;
+  }
+
+  togglSideBar(h: string) {
+    this.sideBarHide = h;
   }
 
 }

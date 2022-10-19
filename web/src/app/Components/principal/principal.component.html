@@ -1,8 +1,8 @@
 <!-- This is an example component -->
 <div>
-    <app-navbar></app-navbar>
+    <app-navbar (toggleSidebar)="togglSideBar($event)"></app-navbar>
     <div class="flex overflow-hidden bg-white pt-16">
-        <app-principal-sidebar (onHeadingChanged)="changeHeading($event)"></app-principal-sidebar>
+        <app-principal-sidebar (onHeadingChanged)="changeHeading($event)" hidden="{{sideBarHide}}"></app-principal-sidebar>
         <div id="main-content" class="h-full w-full bg-gray-50 relative overflow-y-auto lg:ml-64">
             <main>
                 <div class="mx-5 mt-6">

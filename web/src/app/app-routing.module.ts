@@ -21,6 +21,7 @@ import { FeesComponent } from './Components/fees/fees.component';
 import { SalariesComponent } from './Components/salaries/salaries.component';
 import { NewsComponent } from './Components/news/news.component';
 import { ChatsComponent } from './Components/chats/chats.component';
+import { AddClassComponent } from './Components/add-class/add-class.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,6 +43,7 @@ const routes: Routes = [
       { path: '', component: PrincipalDashboardComponent, pathMatch: 'full' },
       { path: 'dashboard', component: PrincipalDashboardComponent, pathMatch: 'full' },
       { path: 'classes', component: ClassesComponent, pathMatch: 'full' },
+      { path: 'addclass', component: AddClassComponent, pathMatch: 'full' },
       { path: 'subjects', component: SubjectsComponent, pathMatch: 'full' },
       { path: 'teachers', component: TeachersComponent, pathMatch: 'full' },
       { path: 'clerks', component: ClerksComponent, pathMatch: 'full' },

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
@@ -6,9 +6,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  dropdownPopoverShow: boolean = false;
+  dropdownPopoverShow: string = 'hidden';
   constructor() { }
 
+  @Output() toggleSidebar = new EventEmitter<string>();
   ngOnInit(): void {
+  }
+
+  toggleDropdownPopover() {
+    if (this.dropdownPopoverShow === 'hidden') {
+      this.dropdownPopoverShow = '';
+    } else {
+      this.dropdownPopoverShow = 'hidden';
+    }
+    this.toggleSidebar.emit(this.dropdownPopoverShow);
   }
 }

@@ -30,6 +30,7 @@ import { FeesComponent } from './Components/fees/fees.component';
 import { SalariesComponent } from './Components/salaries/salaries.component';
 import { NewsComponent } from './Components/news/news.component';
 import { ChatsComponent } from './Components/chats/chats.component';
+import { AddClassComponent } from './Components/add-class/add-class.component';
 
 
 @NgModule({
@@ -61,6 +62,7 @@ import { ChatsComponent } from './Components/chats/chats.component';
     SalariesComponent,
     NewsComponent,
     ChatsComponent,
+    AddClassComponent,
   ],
   imports: [
     BrowserModule,
