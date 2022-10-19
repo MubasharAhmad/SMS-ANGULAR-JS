@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
+  dropdownPopoverShow: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
