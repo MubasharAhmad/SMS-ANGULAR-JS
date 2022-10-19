@@ -1,183 +1,261 @@
-<div class="relative overflow-hidden bg-white scroll-smooth">
-  <div class="mx-auto max-w-7xl">
-    <div class="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
-      <svg class="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
-        fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-        <polygon points="50,0 100,0 50,100 0,100" />
-      </svg>
-      <div>
-        <div class="relative px-4 pt-6 sm:px-6 lg:px-8">
-          <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
-            <div class="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
-              <div class="flex w-full items-center justify-between md:w-auto">
-                <a href="#">
-                  <span class="sr-only">Glorious</span>
-                  <img alt="Your Company" class="h-8 w-auto sm:h-10" src="../../../assets/images/logo.png">
-                </a>
-                <div class="-mr-2 flex items-center md:hidden">
-                  <button type="button"
-                    class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                    aria-expanded="false">
-                    <span class="sr-only">Open main menu</span>
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-                      stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-                      <path stroke-linecap="round" stroke-linejoin="round"
-                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
+<app-alert [isHidden]=isAlertHidden message="{{alertMessage}}" type="{{alertType}}" (close)="handleClose($event)"></app-alert>
+<div class="relative overflow-hidden scroll-smooth ">
+  <div class="relative overflow-hidden bg-white">
+    <div class="mx-auto max-w-7xl">
+      <div class="relative z-10 bg-white pb-8 sm:pb-16 md:pb-20 lg:w-full lg:max-w-2xl lg:pb-28 xl:pb-32">
+        <svg class="absolute inset-y-0 right-0 hidden h-full w-48 translate-x-1/2 transform text-white lg:block"
+          fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <polygon points="50,0 100,0 50,100 0,100" />
+        </svg>
+        <div>
+          <div class="relative px-4 pt-6 sm:px-6 lg:px-8">
+            <nav class="relative flex items-center justify-between sm:h-10 lg:justify-start" aria-label="Global">
+              <div class="flex flex-shrink-0 flex-grow items-center lg:flex-grow-0">
+                <div class="flex w-full items-center justify-between md:w-auto">
+                  <a href="#">
+                    <span class="sr-only">Glorious</span>
+                    <img alt="Your Company" class="h-8 w-auto sm:h-10" src="../../../assets/images/logo.png">
+                  </a>
+                  <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button"
+                      class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                      aria-expanded="false">
+                      <span class="sr-only">Open main menu</span>
+                      <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                          d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
+                <a routerLink="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
+  
+                <a href="#about" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
+  
+                <a href="#contact" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+  
+                <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
+              </div>
+            </nav>
+          </div>
+          <div class="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden">
+            <div class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
+              <div class="flex items-center justify-between px-5 p-4">
+                <div>
+                  <img class="h-8 w-auto" src="../../../assets/images/logo.png" alt="">
+                </div>
+                <div class="-mr-2">
+                  <button type="button" (click)="toggleNavbar()"
+                    class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
+                    <span class="sr-only">Close main menu</span>
+                    <i class="fas fa-times {{ isNavbarOpen?'':'hidden' }}"></i>
+                    <i class="fas fa-bars {{ isNavbarOpen?'hidden':'' }}"></i>
                   </button>
                 </div>
               </div>
-            </div>
-            <div class="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
-              <a routerLink="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
-
-              <a href="#about" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
-
-              <a href="#contact" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
-
-              <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
-            </div>
-          </nav>
-        </div>
-        <div class="absolute inset-x-0 top-0 z-10 origin-top-right transform p-2 transition md:hidden">
-          <div class="overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5">
-            <div class="flex items-center justify-between px-5 p-4">
-              <div>
-                <img class="h-8 w-auto" src="../../../assets/images/logo.png" alt="">
+              <div class="{{ isNavbarOpen?'':'hidden' }}">
+                <div class="space-y-1 px-2 pt-2 pb-3">
+                  <a routerLink="/"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Home</a>
+  
+                  <a href="#about"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">About
+                    Us</a>
+  
+                  <a href="#contact"
+                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Contact
+                    Us</a>
+                </div>
+                <a routerLink="/login"
+                  class="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100">Log
+                  in</a>
               </div>
-              <div class="-mr-2">
-                <button type="button" (click)="toggle()"
-                  class="inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
-                  <span class="sr-only">Close main menu</span>
-                  <i class="fas fa-times {{ vis?'':'hidden' }}"></i>
-                  <i class="fas fa-bars {{ vis?'hidden':'' }}"></i>
-                </button>
-              </div>
-            </div>
-            <div class="{{ vis?'':'hidden' }}">
-              <div class="space-y-1 px-2 pt-2 pb-3">
-                <a routerLink="/"
-                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Home</a>
-
-                <a href="#about"
-                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">About
-                  Us</a>
-
-                <a href="#contact"
-                  class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Contact
-                  Us</a>
-              </div>
-              <a routerLink="/login"
-                class="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100">Log
-                in</a>
             </div>
           </div>
         </div>
-      </div>
-
-      <main class="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
-        <div class="sm:text-center lg:text-left">
-          <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
-            <span class="block xl:inline">Learn and teach in </span>
-            <span class="block text-indigo-600 xl:inline">Glorious Future School</span>
-          </h1>
-          <p class="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
-            Empowering developing communities to become sustainable through quality education and related community
-            activities. Children are at the heart of everything we do.
-          </p>
-          <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
-            <div class="rounded-md shadow">
-              <a routerLink="/register"
-                class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Get
-                started</a>
-            </div>
-
-          </div>
-        </div>
-      </main>
-    </div>
-  </div>
-  <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-    <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
-      src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
-      alt="">
-  </div>
-</div>
-
-<!-- information -->
-<div class="bg-white">
-  <div class="max-w-7xl mx-auto pt-12 pb-6 px-4 sm:px-6 lg:px-8">
-    <div class="lg:text-center">
-      <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl">
-        The Glorious Future School
-      </p>
-      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sunt autem necessitatibus. Quisquam
-        voluptas laboriosam fugiat.
-      </p>
-    </div>
-  </div>
-</div>
-
-<!-- show profile  of principal -->
-<div class="bg-white">
-  <div class="mt-20 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="mt-10">
-      <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-        <li>
-          <div class="relative">
-            <img class="relative z-10 w-56 h-4/5"
-              src="https://www.picng.com/upload/businessman/png_businessman_36386.png" alt="">
-            <svg class="absolute z-0 bottom-0 rounded-bl-sm h-full  text-indigo-600" id="ezpABhN1mTr1"
-              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300"
-              shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
-              <path d="M0,0C76.352538,242.289571,297.452158,181.76751,300,300h-300L0,0Z" fill="currentColor"
-                stroke-width="0.6" />
-            </svg>
-          </div>
-        </li>
-        <li>
-          <div class="mt-4">
-            <h1>
-              <span class="block text-sm font-semibold text-gray-500 uppercase tracking-wide">Principal</span>
-              <span class="mt-1 block text-3xl font-extrabold text-gray-900 sm:text-4xl">Mr. John Doe</span>
+  
+        <main class="mx-auto mt-10 max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
+          <div class="sm:text-center lg:text-left">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-5xl md:text-6xl">
+              <span class="block xl:inline">Learn and teach in </span>
+              <span class="block text-indigo-600 xl:inline">Glorious Future School</span>
             </h1>
-            <p class="mt-3 text-base text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sunt autem necessitatibus. Quisquam
-              voluptas laboriosam fugiat.
-              <br>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, error laborum similique consequatur
-              magni repellat recusandae, rem aspernatur magnam praesentium facilis quisquam laudantium alias quam
-              pariatur repudiandae, eveniet hic in?
+            <p class="mt-3 text-base text-gray-500 sm:mx-auto sm:mt-5 sm:max-w-xl sm:text-lg md:mt-5 md:text-xl lg:mx-0">
+              Empowering developing communities to become sustainable through quality education and related community
+              activities. Children are at the heart of everything we do.
             </p>
+            <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+              <div class="rounded-md shadow">
+                <a routerLink="/register"
+                  class="flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 md:py-4 md:px-10 md:text-lg">Get
+                  started</a>
+              </div>
+  
+            </div>
           </div>
-        </li>
-      </ul>
+        </main>
+      </div>
+    </div>
+    <div class="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
+      <img class="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-full lg:w-full"
+        src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+        alt="">
     </div>
   </div>
-</div>
-
-
-
-<!-- news -->
-<div class="bg-white">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+  
+  <!-- information -->
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto pt-12 pb-6 px-4 sm:px-6 lg:px-8">
       <div class="lg:text-center">
-        <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">News</h2>
+        <p class="mt-2 text-2xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-3xl">
+          The Glorious Future School
+        </p>
         <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-          There are some important latest news about the school. All are from the
-          principal therefore these are based on truth. Please read them carefully.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sunt autem necessitatibus. Quisquam
+          voluptas laboriosam fugiat.
         </p>
       </div>
+    </div>
+  </div>
+  
+  <!-- show profile  of principal -->
+  <div class="bg-white">
+    <div class="mt-20 max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="mt-10">
+        <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+          <li>
+            <div class="relative">
+              <img class="relative z-10 w-56 h-4/5"
+                src="https://www.picng.com/upload/businessman/png_businessman_36386.png" alt="">
+              <svg class="absolute z-0 bottom-0 rounded-bl-sm h-full  text-indigo-600" id="ezpABhN1mTr1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 300 300"
+                shape-rendering="geometricPrecision" text-rendering="geometricPrecision">
+                <path d="M0,0C76.352538,242.289571,297.452158,181.76751,300,300h-300L0,0Z" fill="currentColor"
+                  stroke-width="0.6" />
+              </svg>
+            </div>
+          </li>
+          <li>
+            <div class="mt-4">
+              <h1>
+                <span class="block text-sm font-semibold text-gray-500 uppercase tracking-wide">Principal</span>
+                <span class="mt-1 block text-3xl font-extrabold text-gray-900 sm:text-4xl">Mr. John Doe</span>
+              </h1>
+              <p class="mt-3 text-base text-gray-500">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur sunt autem necessitatibus. Quisquam
+                voluptas laboriosam fugiat.
+                <br>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, error laborum similique consequatur
+                magni repellat recusandae, rem aspernatur magnam praesentium facilis quisquam laudantium alias quam
+                pariatur repudiandae, eveniet hic in?
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+  <!-- news -->
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <div class="lg:text-center">
+          <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">News</h2>
+          <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+            There are some important latest news about the school. All are from the
+            principal therefore these are based on truth. Please read them carefully.
+          </p>
+        </div>
+        <div class="mt-10">
+          <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
+            <li>
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <img class="w-auto h-20 rounded shadow"
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                    alt="">
+                </div>
+                <div class="ml-4">
+                  <h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5>
+                  <p class="mt-2 text-base text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="mt-10 md:mt-0">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <img class="w-auto h-20 rounded shadow"
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                    alt="">
+                </div>
+                <div class="ml-4">
+                  <h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5>
+                  <p class="mt-2 text-base text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="mt-10 md:mt-0">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <img class="w-auto h-20 rounded shadow"
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                    alt="">
+                </div>
+                <div class="ml-4">
+                  <h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5>
+                  <p class="mt-2 text-base text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+                  </p>
+                </div>
+              </div>
+            </li>
+            <li class="mt-10 md:mt-0">
+              <div class="flex">
+                <div class="flex-shrink-0">
+                  <img class="w-auto h-20 rounded shadow"
+                    src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
+                    alt="">
+                </div>
+                <div class="ml-4">
+                  <h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5>
+                  <p class="mt-2 text-base text-gray-500">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+                  </p>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- about us -->
+  <div class="bg-white" id="about">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">About Us</h2>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
+        </p>
+      </div>
+  
       <div class="mt-10">
         <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
           <li>
             <div class="flex">
               <div class="flex-shrink-0">
-                <img class="w-auto h-20 rounded shadow"
-                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
-                  alt="">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <i class="fas fa-chart-line"></i>
+                </div>
               </div>
               <div class="ml-4">
                 <h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5>
@@ -190,9 +268,9 @@
           <li class="mt-10 md:mt-0">
             <div class="flex">
               <div class="flex-shrink-0">
-                <img class="w-auto h-20 rounded shadow"
-                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
-                  alt="">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <i class="fas fa-globe"></i>
+                </div>
               </div>
               <div class="ml-4">
                 <h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5>
@@ -205,9 +283,9 @@
           <li class="mt-10 md:mt-0">
             <div class="flex">
               <div class="flex-shrink-0">
-                <img class="w-auto h-20 rounded shadow"
-                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
-                  alt="">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <i class="fas fa-lock"></i>
+                </div>
               </div>
               <div class="ml-4">
                 <h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5>
@@ -220,9 +298,9 @@
           <li class="mt-10 md:mt-0">
             <div class="flex">
               <div class="flex-shrink-0">
-                <img class="w-auto h-20 rounded shadow"
-                  src="https://images.unsplash.com/photo-1588072432836-e10032774350?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=872&q=80"
-                  alt="">
+                <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
+                  <i class="fas fa-mobile-alt"></i>
+                </div>
               </div>
               <div class="ml-4">
                 <h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5>
@@ -236,194 +314,118 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- about us -->
-<div class="bg-white" id="about">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="lg:text-center">
-      <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">About Us</h2>
-      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
-      </p>
-    </div>
-
-    <div class="mt-10">
-      <ul class="md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
-        <li>
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                <i class="fas fa-chart-line"></i>
-              </div>
-            </div>
-            <div class="ml-4">
-              <h5 class="text-lg leading-6 font-medium text-gray-900">Competitive exchange rates</h5>
-              <p class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
-              </p>
-            </div>
-          </div>
-        </li>
-        <li class="mt-10 md:mt-0">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                <i class="fas fa-globe"></i>
-              </div>
-            </div>
-            <div class="ml-4">
-              <h5 class="text-lg leading-6 font-medium text-gray-900">No hidden fees</h5>
-              <p class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
-              </p>
-            </div>
-          </div>
-        </li>
-        <li class="mt-10 md:mt-0">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                <i class="fas fa-lock"></i>
-              </div>
-            </div>
-            <div class="ml-4">
-              <h5 class="text-lg leading-6 font-medium text-gray-900">Transfers are instant</h5>
-              <p class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
-              </p>
-            </div>
-          </div>
-        </li>
-        <li class="mt-10 md:mt-0">
-          <div class="flex">
-            <div class="flex-shrink-0">
-              <div class="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                <i class="fas fa-mobile-alt"></i>
-              </div>
-            </div>
-            <div class="ml-4">
-              <h5 class="text-lg leading-6 font-medium text-gray-900">Mobile notifications</h5>
-              <p class="mt-2 text-base text-gray-500">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores possimus laborum fugiat.
-              </p>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>
-
-<!-- contact us -->
-<div class="bg-white" id="contact">
-  <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-    <div class="lg:text-center">
-      <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">Contact Us</h2>
-      <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
-        We are here to help you. Please fill out the form below and we will get back to you as soon as possible.
-      </p>
-    </div>
-
-    <div class="mt-10">
-      <div class="md:grid md:grid-cols-2 md:gap-8">
-        <div>
-          <div class="mt-10">
-            <dl class="space-y-10">
-              <div>
-                <dt class="text-lg leading-6 font-medium text-gray-900">
-                  Phone
-                </dt>
-                <dd class="mt-2 text-base text-gray-500">
-                  +1 (555) 123-4567
-                </dd>
-              </div>
-              <div>
-                <dt class="text-lg leading-6 font-medium text-gray-900">
-                  Email
-                </dt>
-                <dd class="mt-2 text-base text-gray-500">
-                  someone@gmail.com
-                </dd>
-              </div>
-              <div>
-                <dt class="text-lg leading-6 font-medium text-gray-900">
-                  Address
-                </dt>
-                <dd class="mt-2 text-base text-gray-500">
-                  1234 Main St, Anytown, CA 12345
-                </dd>
-              </div>
-            </dl>
-          </div>
-        </div>
-        <div class="mt-10 md:mt-0">
-          <form (ngSubmit)="onSubmit()">
-            <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
-              <div>
-                <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
-                <div class="mt-1">
-                  <input type="text" name="first_name" id="first_name" autocomplete="given-name" class="form-control"
-                    placeholder="First Name">
+  
+  <!-- contact us -->
+  <div class="bg-white" id="contact">
+    <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div class="lg:text-center">
+        <h2 class="text-3xl md:text-4xl text-indigo-600 font-semibold tracking-wide uppercase">Contact Us</h2>
+        <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+          We are here to help you. Please fill out the form below and we will get back to you as soon as possible.
+        </p>
+      </div>
+  
+      <div class="mt-10">
+        <div class="md:grid md:grid-cols-2 md:gap-8">
+          <div>
+            <div class="mt-10">
+              <dl class="space-y-10">
+                <div>
+                  <dt class="text-lg leading-6 font-medium text-gray-900">
+                    Phone
+                  </dt>
+                  <dd class="mt-2 text-base text-gray-500">
+                    +1 (555) 123-4567
+                  </dd>
                 </div>
-              </div>
-              <div>
-                <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
-                <div class="mt-1">
-                  <input type="text" name="last_name" id="last_name" autocomplete="family-name" class="form-control"
-                    placeholder="Last Name">
+                <div>
+                  <dt class="text-lg leading-6 font-medium text-gray-900">
+                    Email
+                  </dt>
+                  <dd class="mt-2 text-base text-gray-500">
+                    someone@gmail.com
+                  </dd>
                 </div>
-              </div>
-              <div class="sm:col-span-2">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                <div class="mt-1">
-                  <input id="email" name="email" type="email" autocomplete="email" class="form-control"
-                    placeholder="i.e. someone@gmail.com">
+                <div>
+                  <dt class="text-lg leading-6 font-medium text-gray-900">
+                    Address
+                  </dt>
+                  <dd class="mt-2 text-base text-gray-500">
+                    1234 Main St, Anytown, CA 12345
+                  </dd>
                 </div>
-              </div>
-              <div class="sm:col-span-2">
-                <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                <div class="mt-1">
-                  <textarea id="message" name="message" rows="4" class="textarea"
+              </dl>
+            </div>
+          </div>
+          <div class="mt-10 md:mt-0">
+            <form (ngSubmit)="onSubmit()">
+              <div class="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
+                <div>
+                  <label for="first_name" class="block text-sm font-medium text-gray-700">First name</label>
+                  <input type="text" [(ngModel)]="firstName" name="firstName" id="first_name" autocomplete="given-name"
+                    class="mt-1 form-control" placeholder="First Name">
+                  <div class="text-danger text-xs italic">{{firstNameError}}</div>
+                </div>
+                <div>
+                  <label for="last_name" class="block text-sm font-medium text-gray-700">Last name</label>
+                  <input type="text" [(ngModel)]="lastName" name="lastName" id="last_name" autocomplete="family-name"
+                    class="mt-1 form-control" placeholder="Last Name">
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                  <input id="email" [(ngModel)]="email" name="email" type="email" autocomplete="email"
+                    class="mt-1 form-control" placeholder="i.e. someone@gmail.com">
+                  <div class="text-danger text-xs italic">{{emailError}}</div>
+                </div>
+                <div class="sm:col-span-2">
+                  <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                  <textarea id="message" [(ngModel)]="message" name="message" rows="4" class="mt-1 textarea"
                     placeholder="your message here..."></textarea>
+                  <div class="text-danger text-xs italic">{{messageError}}</div>
+                </div>
+                <div class="sm:col-span-2">
+                  <button [disabled]="isSendingMessage? 'true':''" type="submit" class="w-full inline-flex items-center justify-center py-3 btn btn-primary">
+                    <svg class="{{(isSendingMessage? '':'hidden')}} animate-spin mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                      viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor"
+                        d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                      </path>
+                    </svg> <div>{{isSendingMessage?"Sending":"Send"}}</div>
+                  </button>
                 </div>
               </div>
-              <div class="sm:col-span-2">
-                <button type="submit" class="w-full inline-flex justify-center py-3 btn btn-primary">
-                  Send
-                </button>
-              </div>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<!-- advanced footer -->
-<div class="bg-white">
-  <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
-    <div class="mt-4 flex justify-center space-x-6">
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">Facebook</span>
-        <i class="fab fa-facebook-f"></i>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">Twitter</span>
-        <i class="fab fa-twitter"></i>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">Instagram</span>
-        <i class="fab fa-instagram"></i>
-      </a>
-      <a href="#" class="text-gray-400 hover:text-gray-500">
-        <span class="sr-only">LinkedIn</span>
-        <i class="fab fa-linkedin-in"></i>
-      </a>
+  
+  <!-- advanced footer -->
+  <div class="bg-white">
+    <div class="max-w-7xl mx-auto py-2 px-4 sm:px-6 lg:px-8">
+      <div class="mt-4 flex justify-center space-x-6">
+        <a href="#" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">Facebook</span>
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">Twitter</span>
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">Instagram</span>
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="#" class="text-gray-400 hover:text-gray-500">
+          <span class="sr-only">LinkedIn</span>
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+      <p class="mt-2 text-center text-base text-gray-400">
+        &copy; 2021 Company, Inc. All rights reserved.
+      </p>
     </div>
-    <p class="mt-2 text-center text-base text-gray-400">
-      &copy; 2021 Company, Inc. All rights reserved.
-    </p>
   </div>
 </div>

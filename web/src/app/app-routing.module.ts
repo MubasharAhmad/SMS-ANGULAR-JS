@@ -4,15 +4,16 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
 import { HomeComponent } from './Components/home/home.component';
 import { LoginComponent } from './Components/login/login.component';
 import { RegisterComponent } from './Components/register/register.component';
-import { ActivateAccountComponent } from './Components/activate-account/activate-account.component';
-
+import { VarifyAccountComponent } from './Components/varify-account/varify-account.component';
+import { RegisteredAccountComponent } from './Components/registered-account/registered-account.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'activateaccount', component: ActivateAccountComponent },
+  { path: 'varifyaccount', component: VarifyAccountComponent },
+  { path: 'registeredaccount', component: RegisteredAccountComponent },
   { path: 'resetpassword', component: ResetPasswordComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
 ];

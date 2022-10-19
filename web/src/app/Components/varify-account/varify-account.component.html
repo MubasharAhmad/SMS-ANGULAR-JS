@@ -1,0 +1,38 @@
+<app-alert [isHidden]=isAlertHidden message="{{alertMessage}}" type="{{alertType}}" (close)="handleClose($event)">
+</app-alert>
+<div class="flex items-center min-h-screen p-6 bg-gray-100">
+    <div class="flex-1 h-full max-w-2xl mx-auto overflow-hidden">
+        <app-logo></app-logo>
+        <div class="flex flex-col overflow-y-auto bg-white rounded-lg shadow">
+            <div class="flex items-center justify-center px-12 pt-6 pb-4">
+                <div class="w-full">
+                    <form class="text-center" (ngSubmit)="onSubmit()">
+                        <h1 class="text-4xl">Varify Account</h1>
+                        <p>To varify your account check your email. If not receive email
+                            then click below to get your email.</p>
+                        <input class="mt-2 form-control" name="varificationCode"
+                            type="text" placeholder="Varification Code" [(ngModel)]="varificationCode" required>
+                        <button [disabled]="isVarifing? 'true':''" type="submit" class="mt-2 py-3 inline-flex items-center justify-center btn btn-primary">
+                            <svg class="{{(isVarifing? '':'hidden')}} animate-spin mr-2 h-4 w-4 text-white"
+                                xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
+                                    stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor"
+                                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z">
+                                </path>
+                            </svg>
+                            <div>{{isVarifing?"Varifing":"Varify"}}</div>
+                        </button>
+                        <br>
+                        <button type="button" class="mt-2 text-indigo-600 hover:text-indigo-700">
+                            Resend Email
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-500 text-xs mt-2">
+            &copy;2022 Glorious Future School. All rights reserved.
+        </p>
+    </div>
+</div>

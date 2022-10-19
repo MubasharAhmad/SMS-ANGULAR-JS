@@ -2,16 +2,20 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html',
-  styleUrls: ['./reset-password.component.css']
+  templateUrl: './reset-password.component.html'
 })
 export class ResetPasswordComponent implements OnInit {
 
-  isAlertHidden:boolean = true;
-  alertMessage:string = "";
-  email:string = "";
-  emailError:string = "";
-  constructor() { }
+  isAlertHidden: boolean = true;
+  alertMessage: string = "";
+  alertType: string = "primary";
+
+  email: string = "";
+  emailError: string = "";
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
@@ -20,4 +24,7 @@ export class ResetPasswordComponent implements OnInit {
 
   }
 
+  handleClose($event: boolean) {
+    this.isAlertHidden = $event;
+  }
 }

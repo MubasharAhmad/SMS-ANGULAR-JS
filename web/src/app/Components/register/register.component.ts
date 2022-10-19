@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  templateUrl: './register.component.html'
 })
 export class RegisterComponent implements OnInit {
 
@@ -20,12 +19,18 @@ export class RegisterComponent implements OnInit {
   email: string = "";
   password: string = "";
   cpassword: string = "";
-  constructor() { }
+
+  isSigninUp: boolean = false;
+
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
 
   async onSubmit() {
+    this.isSigninUp = true;
     if (this.name === "") {
       this.nameError = "Name is required";
     }
@@ -81,31 +86,33 @@ export class RegisterComponent implements OnInit {
           name: this.name,
           email: this.email,
           password: this.password,
-          cpassword: this.cpassword
+          userAgent: navigator.userAgent,
+          vendor: navigator.vendor
         })
       })
       let res = await data.json();
       if (!res.success) {
         this.alertType = "danger";
         this.alertMessage = res.msg;
-        this.isAlertHidden = true;
-        setTimeout(() => {
-          this.isAlertHidden = false;
-        }, 4000);
+        this.isAlertHidden = false;
       }
       else {
-        this.alertType = "scuccess";
-        this.alertMessage = "Varify your account through email";
-        this.isAlertHidden = true;
-        setTimeout(() => {
-          this.isAlertHidden = false;
-        }, 4000);
+        this.alertType = "success";
+        this.alertMessage = res.msg;
+        this.isAlertHidden = false;
+        localStorage.setItem('email', this.email);
+        location.pathname = `/varifyaccount`;
       }
     }
+    this.isSigninUp = false;
   }
 
   validateEmail(email: string) {
     let re = /\S+@\S+\.\S+/;
     return re.test(email);
+  }
+
+  handleClose($event: boolean) {
+    this.isAlertHidden = $event;
   }
 }

@@ -11,9 +11,10 @@ import { NavbarComponent } from './Components/navbar/navbar.component';
 import { LogoComponent } from './Components/logo/logo.component';
 import { FormsModule } from '@angular/forms';
 import { AlertComponent } from './Components/alert/alert.component';
-import { ActivateAccountComponent } from './Components/activate-account/activate-account.component';
 import { ResetPasswordComponent } from './Components/reset-password/reset-password.component';
 import { ChangePasswordComponent } from './Components/change-password/change-password.component';
+import { RegisteredAccountComponent } from './Components/registered-account/registered-account.component';
+import { VarifyAccountComponent } from './Components/varify-account/varify-account.component';
 
 
 @NgModule({
@@ -25,9 +26,10 @@ import { ChangePasswordComponent } from './Components/change-password/change-pas
     NavbarComponent,
     LogoComponent,
     AlertComponent,
-    ActivateAccountComponent,
     ResetPasswordComponent,
     ChangePasswordComponent,
+    RegisteredAccountComponent,
+    VarifyAccountComponent,
   ],
   imports: [
     BrowserModule,

@@ -2,25 +2,29 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  templateUrl: './login.component.html'
 })
 export class LoginComponent implements OnInit {
 
-  email: string = "";
-  password: string = "";
   isAlertHidden: boolean = true;
   alertMessage: string = "";
   alertType:string = "primary";
+
+  email: string = "";
+  password: string = "";
   emailError: string = "";
   pwdError: string = "";
+  isSigning: boolean = false;
 
-  constructor() { }
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
 
   async onSubmit() {
+    this.isSigning = true;
     if (this.email == "") {
       this.emailError = "Email is required";
     }
@@ -58,12 +62,9 @@ export class LoginComponent implements OnInit {
         this.alertType = "danger";
         this.isAlertHidden = false;
         this.alertMessage = res.msg;
-        setTimeout(() => {
-          this.isAlertHidden = true;
-        }, 4000);
       }
     }
-
+    this.isSigning = false;
   }
 
   validateEmail(email: string) {
@@ -71,4 +72,7 @@ export class LoginComponent implements OnInit {
     return re.test(email);
   }
 
+  handleClose($event: boolean) {
+    this.isAlertHidden = $event;
+  }
 }

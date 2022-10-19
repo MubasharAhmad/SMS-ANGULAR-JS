@@ -1,0 +1,25 @@
+<app-alert [isHidden]=isAlertHidden message="{{alertMessage}}" type="{{alertType}}" (close)="handleClose($event)">
+</app-alert>
+<div class="flex items-center min-h-screen p-6 bg-gray-100">
+    <div class="flex-1 h-full max-w-2xl mx-auto overflow-hidden">
+        <app-logo></app-logo>
+        <div class="flex flex-col overflow-y-auto bg-white rounded-lg shadow">
+            <div class="flex items-center justify-center px-12 pt-6 pb-4">
+                <div class="w-full">
+                    <div class="text-center pb-2">
+                        <h1 class="text-4xl">Registered Account</h1>
+                        <p>Your Account is registered. Try to login, click below to login. 
+                            <br>
+                            <b>Thanks</b> for
+                            registeration of account.</p>
+                            <br>
+                        <a class="mt-5 py-3 btn btn-primary" routerLink="/login">Try Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-gray-500 text-xs mt-2">
+            &copy;2022 Glorious Future School. All rights reserved.
+        </p>
+    </div>
+</div>

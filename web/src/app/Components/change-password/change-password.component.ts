@@ -2,19 +2,21 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-change-password',
-  templateUrl: './change-password.component.html',
-  styleUrls: ['./change-password.component.css']
+  templateUrl: './change-password.component.html'
 })
 export class ChangePasswordComponent implements OnInit {
 
-  alertHidden:string = "hidden";
-  alertMessage:string = "";
-  password:string = "";
-  cpassword:string = "";
-  passwordError:string = "";
-  cpasswordError:string = "";
-  alertType:string = "primary";
-  constructor() { }
+  isAlertHidden: boolean = true;
+  alertMessage: string = "";
+  alertType: string = "primary";
+
+  password: string = "";
+  cpassword: string = "";
+  passwordError: string = "";
+  cpasswordError: string = "";
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
@@ -22,4 +24,7 @@ export class ChangePasswordComponent implements OnInit {
   onSubmit() {
   }
 
+  handleClose($event: boolean) {
+    this.isAlertHidden = $event;
+  }
 }
