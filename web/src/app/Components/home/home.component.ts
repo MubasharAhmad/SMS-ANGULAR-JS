@@ -1,4 +1,5 @@
 import { Component, OnInit, SimpleChange } from '@angular/core';
+import { ViewportScroller } from "@angular/common";
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,8 @@ export class HomeComponent implements OnInit {
   emailError: string = "";
   messageError: string = "";
   isSendingMessage: boolean = false;
-  
-  constructor() {
+
+  constructor(private scroller: ViewportScroller) {
 
   }
 
@@ -29,6 +30,14 @@ export class HomeComponent implements OnInit {
 
   toggleNavbar() {
     this.isNavbarOpen = !this.isNavbarOpen;
+  }
+
+  onScrollTo(id: string) {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "center",
+      inline: "nearest"
+    });
   }
 
   async onSubmit() {

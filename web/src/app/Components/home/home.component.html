@@ -31,11 +31,11 @@
                 </div>
               </div>
               <div class="hidden md:ml-10 md:block md:space-x-8 md:pr-4">
-                <a routerLink="/" class="font-medium text-gray-500 hover:text-gray-900">Home</a>
+                <a routerLink="/" class="cursor-pointer font-medium text-gray-500 hover:text-gray-900">Home</a>
   
-                <a href="#about" class="font-medium text-gray-500 hover:text-gray-900">About Us</a>
+                <a (click)="onScrollTo('about')" class="cursor-pointer font-medium text-gray-500 hover:text-gray-900">About Us</a>
   
-                <a href="#contact" class="font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
+                <a (click)="onScrollTo('contact')" class="cursor-pointer font-medium text-gray-500 hover:text-gray-900">Contact Us</a>
   
                 <a routerLink="/login" class="font-medium text-indigo-600 hover:text-indigo-500">Log in</a>
               </div>
@@ -59,18 +59,18 @@
               <div class="{{ isNavbarOpen?'':'hidden' }}">
                 <div class="space-y-1 px-2 pt-2 pb-3">
                   <a routerLink="/"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Home</a>
+                    class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Home</a>
   
-                  <a href="#about"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">About
+                  <a (click)="onScrollTo('about')"
+                    class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">About
                     Us</a>
   
-                  <a href="#contact"
-                    class="block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Contact
+                  <a (click)="onScrollTo('contact')"
+                    class="cursor-pointer block rounded-md px-3 py-2 text-base font-medium text-gray-700 hover:bg-gray-50 hover:text-gray-900">Contact
                     Us</a>
                 </div>
                 <a routerLink="/login"
-                  class="block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100">Log
+                  class="cursor-pointer block w-full bg-gray-50 px-5 py-3 text-center font-medium text-indigo-600 hover:bg-gray-100">Log
                   in</a>
               </div>
             </div>

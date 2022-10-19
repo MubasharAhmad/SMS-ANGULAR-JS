@@ -64,6 +64,36 @@ export class VarifyAccountComponent implements OnInit {
     }
   }
 
+  async resendVarificationCode() {
+    const email = localStorage.getItem("email");
+    if (email) {
+      const response = await fetch(`${environment.API_URL}/api/auth/varificationEmail`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email: email,
+          purpose: "SignUp"
+        })
+      });
+      const data = await response.json();
+      if (data.success) {
+        this.alertMessage = data.msg;
+        this.alertType = "success";
+        this.isAlertHidden = false;
+      }
+      else {
+        this.alertMessage = data.msg;
+        this.alertType = "danger";
+        this.isAlertHidden = false;
+      }
+    }
+    else{
+      location.pathname = "/register";
+    }
+  }
+
   handleClose($event: boolean) {
     this.isAlertHidden = $event;
   }

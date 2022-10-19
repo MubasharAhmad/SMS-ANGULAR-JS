@@ -3,7 +3,6 @@ const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const axios = require("axios");
 const nodeMailer = require("nodemailer");
 
 const User = require("../models/User");
@@ -54,13 +53,6 @@ router.post(
                     return res.status(400).json({ success, msg: "User with this email already exists" });
                 }
             }
-
-            // verify existence of email
-            const { data } = await axios.get(`https://emailvalidation.abstractapi.com/v1/?api_key=9bd9f51f3f98494fa65c2253a079282f&email=${req.body.email}`);
-            if (data.is_smtp_valid.value !== true) {
-                return res.status(400).json({ success, msg: "Email does not exist" });
-            }
-
             // encrypt password using bcrypto
             const salt = await bcrypt.genSalt(10);
             const securedPassword = await bcrypt.hash(req.body.password, salt);
@@ -74,8 +66,9 @@ router.post(
             await user.save();
 
             // send email
-            const response = await axios.post(`${API_URL}/api/auth/sendVarificationEmail`, {
+            const response = await axios.post(`${API_URL}/api/auth/varificationEmail`, {
                 email: user.email,
+                purpose: "SignUp",
                 userAgent: req.body.userAgent,
                 vendor: req.body.vendor
             });
@@ -192,15 +185,20 @@ router.post("/varify", async (req, res) => {
     }
 });
 
-router.post('/sendVarificationEmail', async (req, res) => {
+
+router.post('/varificationEmail', async (req, res) => {
     let success = false;
     try {
         const user = await User.findOne({ email: req.body.email });
+        const purpose = req.body.purpose;
         if (!user) {
             return res.status(400).json({ success, msg: "Invalid Token" });
         }
-        if (user.isActived) {
+        if (purpose === "SignUp" && user.isActived) {
             return res.status(400).json({ success, msg: "Account is already activated" });
+        }
+        if (purpose === "ResetPassword" && user.isActived) {
+            return res.status(400).json({ success, msg: "Account is not activated" });
         }
         const lastVarification = await Varification.findOne({ email: req.body.email });
         if (lastVarification) {
@@ -216,14 +214,18 @@ router.post('/sendVarificationEmail', async (req, res) => {
         const mailOptions = {
             from: Transporter_Email,
             to: user.email,
-            subject: "Welcome",
+            subject: `${purpose == "SignUp"? 'Welcome':'Reset'}`,
             html: `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
-            <h1>Welcome To The GLORIOUS Future School</h1>
+            ${purpose === "SignUp" ? `<h1>Welcome To The GLORIOUS Future School</h1>
             <p>Make sure this is you</p>
             <p>Device Details</p>
             <p>Name: ${req.body.plateform} , Browser: ${req.body.vendor}</p>
-            <p>This is Your Varification Code: <b>${code}</b></p>
+            <p>This is Your Varification Code: <b>${code}</b></p>` : `<h1>Reset Password</h1>
+            <p>Make sure this is you, if not you then ignore this email.</p>
+            <p>This is Varification Code: <b>${code}</b></p>
+            <p>Do not share this code with anyone.</p>
+            `}
             <p>If you have any problem with your account, please
             <a href="${WEB_URL}/#contact" style="border: none;
                 color: #4c78af;
@@ -248,6 +250,7 @@ router.post('/sendVarificationEmail', async (req, res) => {
         res.status(500).send({ success, msg: "Internal Server Error" });
     }
 });
+
 
 
 module.exports = router;
