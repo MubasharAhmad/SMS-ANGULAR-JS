@@ -4,6 +4,7 @@ const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodeMailer = require("nodemailer");
+const axios = require('axios')
 
 const User = require("../models/User");
 const Varification = require("../models/Varification");
@@ -80,6 +81,7 @@ router.post(
                 return res.status(200).json({ success, msg: "Email has been sent to you" });
             }
         } catch (error) {
+            console.log(error)
             res.status(500).send({ success, msg: "Internal Server Error" });
         }
     }
@@ -155,35 +157,6 @@ router.post(
     }
 );
 
-// post api/auth/activate
-router.post("/varify", async (req, res) => {
-    let success = false;
-    try {
-        let user = await User.findOne({ email: req.body.email });
-        if (!user) {
-            return res.status(400).json({ success, msg: "Invalid Credentials" });
-        }
-        if (user.isActived === true) {
-            return res.status(400).json({ success, msg: "User already activated" });
-        }
-        let varification = await Varification.findOne({ email: req.body.email, code: req.body.code });
-        if (!varification) {
-            return res.status(400).json({ success, msg: "Invalid Credentials" });
-        }
-        // one hour time limit
-        if (varification.date < Date.now() - 3600000) {
-            return res.status(400).json({ success, msg: "Code Expired" });
-        }
-        user.isActived = true;
-        await user.save();
-        await varification.remove();
-        success = true;
-        res.status(200).json({ success, msg: "User activated" });
-    }
-    catch (error) {
-        res.status(500).send({ success, msg: "Internal Server Error" });
-    }
-});
 
 
 router.post('/varificationEmail', async (req, res) => {
@@ -228,14 +201,14 @@ router.post('/varificationEmail', async (req, res) => {
             `}
             <p>If you have any problem with your account, please
             <a href="${WEB_URL}/#contact" style="border: none;
-                color: #4c78af;
-                text-align: center;
-                text-decoration: none;
-                display: inline-block;
-                cursor: pointer;
-                font-size: 16px;">Contact Us.</a></p>
+            color: #4c78af;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 16px;">Contact Us.</a></p>
             <p>Thanks for using our service.</p>
-        </div>`
+            </div>`
         };
         transporter.sendMail(mailOptions, function (error, info) {
             if (error) {
@@ -251,6 +224,36 @@ router.post('/varificationEmail', async (req, res) => {
     }
 });
 
+
+// post api/auth/activate
+router.post("/varify", async (req, res) => {
+    let success = false;
+    try {
+        let user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(400).json({ success, msg: "Invalid Credentials" });
+        }
+        if (user.isActived === true) {
+            return res.status(400).json({ success, msg: "User already activated" });
+        }
+        let varification = await Varification.findOne({ email: req.body.email, code: req.body.code });
+        if (!varification) {
+            return res.status(400).json({ success, msg: "Invalid Credentials" });
+        }
+        // one hour time limit
+        if (varification.date < Date.now() - 3600000) {
+            return res.status(400).json({ success, msg: "Code Expired" });
+        }
+        user.isActived = true;
+        await user.save();
+        await varification.remove();
+        success = true;
+        res.status(200).json({ success, msg: "User activated" });
+    }
+    catch (error) {
+        res.status(500).send({ success, msg: "Internal Server Error" });
+    }
+});
 
 
 module.exports = router;
