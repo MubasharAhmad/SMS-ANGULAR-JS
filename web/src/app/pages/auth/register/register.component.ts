@@ -14,11 +14,18 @@ export class RegisterComponent implements OnInit {
   emailError: string = "";
   passwordError: string = "";
   cpasswordError: string = "";
+  descError: string = "";
 
   name: string = "";
   email: string = "";
   password: string = "";
   cpassword: string = "";
+  role: string = "teacher";
+  roles = [
+    { name: 'Teacher', value: 'teacher' },
+    { name: 'Clerk', value: 'clerk' }
+  ];
+  description: string = "";
 
   isSigninUp: boolean = false;
 
@@ -50,6 +57,16 @@ export class RegisterComponent implements OnInit {
     }
     else {
       this.emailError = "";
+    }
+
+    if(this.description === ""){
+      this.descError = "Description is required";
+    }
+    else if(this.description.length < 20){
+      this.descError = "Description must be at least 20 characters";
+    }
+    else{
+      this.descError = "";
     }
 
     if (this.password === "") {

@@ -7,21 +7,21 @@ import { RegisterComponent } from './pages/auth/register/register.component';
 import { VarifyAccountComponent } from './pages/auth/varify-account/varify-account.component';
 import { RegisteredAccountComponent } from './pages/auth/registered-account/registered-account.component';
 import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
-import { PrincipalComponent } from './Components/principal/principal.component';
-import { PrincipalDashboardComponent } from './Components/principal-dashboard/principal-dashboard.component';
-import { ClassesComponent } from './Components/classes/classes.component';
-import { SubjectsComponent } from './Components/subjects/subjects.component';
-import { TeachersComponent } from './Components/teachers/teachers.component';
-import { ClerksComponent } from './Components/clerks/clerks.component';
+import { PrincipalComponent } from './pages/principal/principal/principal.component';
+import { PrincipalDashboardComponent } from './pages/principal/principal-dashboard/principal-dashboard.component';
+import { ClassesComponent } from './pages/principal/classes/classes.component';
+import { SubjectsComponent } from './pages/principal/subjects/subjects.component';
+import { TeachersComponent } from './pages/principal/teachers/teachers.component';
+import { ClerksComponent } from './pages/principal/clerks/clerks.component';
 import { TimetableComponent } from './pages/principal/timetable/timetable.component';
-import { AttendancesComponent } from './Components/attendances/attendances.component';
-import { AssignmentsComponent } from './Components/assignments/assignments.component';
-import { ReportsComponent } from './Components/reports/reports.component';
-import { FeesComponent } from './Components/fees/fees.component';
-import { SalariesComponent } from './Components/salaries/salaries.component';
-import { NewsComponent } from './Components/news/news.component';
-import { ChatsComponent } from './Components/chats/chats.component';
-import { AddClassComponent } from './Components/add-class/add-class.component';
+import { AttendancesComponent } from './pages/principal/attendances/attendances.component';
+import { AssignmentsComponent } from './pages/principal/assignments/assignments.component';
+import { ReportsComponent } from './pages/principal/reports/reports.component';
+import { FeesComponent } from './pages/principal/fees/fees.component';
+import { SalariesComponent } from './pages/principal/salaries/salaries.component';
+import { NewsComponent } from './pages/principal/news/news.component';
+import { ChatsComponent } from './pages/principal/chats/chats.component';
+import { AddClassComponent } from './pages/principal/add-class/add-class.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
