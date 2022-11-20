@@ -15,9 +15,19 @@ const UserSchema = new Schema({
         type: Boolean,
         default: false
     },
+    isVerified: {
+        type: Boolean,
+        default: false
+    },
     password: {
         type: String,
         required: true
+    },
+    role: {
+        type: String,
+    },
+    description: {
+        type: String,
     },
     date: {
         type: Date,

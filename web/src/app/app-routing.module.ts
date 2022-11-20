@@ -24,15 +24,18 @@ import { SalariesComponent } from './pages/principal/salaries/salaries.component
 import { NewsComponent } from './pages/principal/news/news.component';
 import { ChatsComponent } from './pages/principal/chats/chats.component';
 import { AddClassComponent } from './pages/principal/add-class/add-class.component';
+import { ApplicationsComponent } from './pages/principal/applications/applications.component';
+import { TeacherComponent } from './pages/teacher/teacher/teacher.component';
+import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/teacher-dashboard.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  { path: 'registeredaccount', component: RegisteredAccountComponent },
+  { path: '', component: HomeComponent, pathMatch: 'full' },
+  { path: 'login', component: LoginComponent, pathMatch: 'full' },
+  { path: 'register', component: RegisterComponent, pathMatch: 'full' },
+  { path: 'forgotpassword', component: ForgotPasswordComponent, pathMatch: 'full' },
+  { path: 'changepassword', component: ChangePasswordComponent, pathMatch: 'full' },
   { path: 'activateaccount', component: ActivateAccountComponent },
-  { path: 'forgotpassword', component: ForgotPasswordComponent },
-  { path: 'changepassword', component: ChangePasswordComponent },
+  { path: 'registeredaccount', component: RegisteredAccountComponent },
   {
     path: 'principal', component: PrincipalComponent,
     children: [
@@ -51,8 +54,21 @@ const routes: Routes = [
       { path: 'salaries', component: SalariesComponent, pathMatch: 'full' },
       { path: 'news', component: NewsComponent, pathMatch: 'full' },
       { path: 'chats', component: ChatsComponent, pathMatch: 'full' },
+      { path: 'applications', component: ApplicationsComponent, pathMatch: 'full' },
     ]
-  }];
+  },
+  {
+    path: 'teacher', component: TeacherComponent,
+    children: [
+      { path: '', component: TeacherDashboardComponent, pathMatch: 'full' },
+      { path: 'dashboard', component: TeacherDashboardComponent, pathMatch: 'full' },
+    ]
+  },
+  {
+    path: 'clerk', component: ClerksComponent,
+  },
+];
+
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

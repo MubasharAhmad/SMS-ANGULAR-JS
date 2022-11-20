@@ -34,6 +34,12 @@ import { SalariesComponent } from './pages/principal/salaries/salaries.component
 import { NewsComponent } from './pages/principal/news/news.component';
 import { ChatsComponent } from './pages/principal/chats/chats.component';
 import { AddClassComponent } from './pages/principal/add-class/add-class.component';
+import { ApplicationsComponent } from './pages/principal/applications/applications.component';
+import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/teacher-dashboard.component';
+import { ClerkDashboardComponent } from './pages/clerk/clerk-dashboard/clerk-dashboard.component';
+import { TeacherComponent } from './pages/teacher/teacher/teacher.component';
+import { ClerkComponent } from './pages/clerk/clerk/clerk.component';
+import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher-sidebar.component';
 
 
 @NgModule({
@@ -66,6 +72,12 @@ import { AddClassComponent } from './pages/principal/add-class/add-class.compone
     NewsComponent,
     ChatsComponent,
     AddClassComponent,
+    ApplicationsComponent,
+    TeacherDashboardComponent,
+    ClerkDashboardComponent,
+    TeacherComponent,
+    ClerkComponent,
+    TeacherSidebarComponent,
   ],
   imports: [
     BrowserModule,

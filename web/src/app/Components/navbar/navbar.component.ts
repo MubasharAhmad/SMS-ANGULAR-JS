@@ -21,4 +21,9 @@ export class NavbarComponent implements OnInit {
     }
     this.toggleSidebar.emit(this.dropdownPopoverShow);
   }
+
+  handleLogout() {
+    localStorage.removeItem('GFS-AUTH-TOKEN');
+    window.location.href = '/login';
+  }
 }

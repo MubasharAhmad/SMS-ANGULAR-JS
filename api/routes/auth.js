@@ -28,14 +28,14 @@ const transporter = nodeMailer.createTransport({
     }
 });
 
-
 //  POST api/auth/register
 router.post(
     "/register",
     [
         body("name", "Please enter a valid name").isLength({ min: 3 }),
         body("email", "Please enter a valid email").isEmail(),
-        body("password", "Please enter a password with 8 or more characters").isLength({ min: 8 })
+        body("password", "Please enter a password with 8 or more characters").isLength({ min: 8 }),
+        body("description", "Please enter description of min 20 chars").isLength({ min: 20 })
     ],
     async (req, res) => {
         const errors = validationResult(req);
@@ -63,7 +63,9 @@ router.post(
             user = await User({
                 name: req.body.name,
                 email: req.body.email,
-                password: securedPassword
+                password: securedPassword,
+                role: req.body.role,
+                description: req.body.description
             });
             await user.save();
 
@@ -106,7 +108,9 @@ router.post(
             if (!user || (user && user.isActived === false)) {
                 return res.status(400).json({ success, msg: "Invalid Credentials" });
             }
-
+            if (user.isVerified === false) {
+                return res.status(400).json({ success, msg: "You are not verified from principal" });
+            }
             // bcrypto decrypt password
             const passwordCompare = await bcrypt.compare(req.body.password, user.password);
             if (!passwordCompare) {
@@ -145,11 +149,13 @@ router.post(
             });
 
             let data = {
-                email: req.body.email,
-                code: req.body.code
+                user: {
+                    id: user.id,
+                }
             };
             const authToken = jwt.sign(data, JWT_SECRET);
-            res.json({ success, authToken });
+            const redirectTo = user.role === "principal" ? "/principal" : user.role === "teacher"? "/teacher" : "/clerk";
+            res.json({ success, authToken, redirectUrl: user.role });
         } catch (error) {
             console.error(error.message);
             res.status(500).send({ success, msg: "Internal Server Error" });

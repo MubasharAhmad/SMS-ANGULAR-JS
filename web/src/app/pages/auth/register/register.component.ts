@@ -104,8 +104,10 @@ export class RegisterComponent implements OnInit {
           name: this.name,
           email: this.email,
           password: this.password,
-          userAgent: navigator.userAgent,
-          vendor: navigator.vendor
+          role: this.role,
+          description: this.description,
+          platform: navigator.userAgent,
+          vendor: navigator.vendor,
         })
       })
       let res = await data.json();

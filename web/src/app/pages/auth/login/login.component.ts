@@ -51,13 +51,15 @@ export class LoginComponent implements OnInit {
         },
         body: JSON.stringify({
           email: this.email,
-          password: this.password
+          password: this.password,
+          platform: navigator.userAgent,
+          vendor: navigator.vendor
         })
       })
       let res = await data.json();
       if (res.success) {
-        localStorage.setItem("RFS-AUTH-TOKEN", res.authToken);
-        window.location.href = "/";
+        localStorage.setItem("GFS-AUTH-TOKEN", res.authToken);
+        window.location.href = res.redirectUrl;
       }
       else {
         this.alertType = "danger";

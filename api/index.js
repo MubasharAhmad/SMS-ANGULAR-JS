@@ -16,6 +16,7 @@ connectToMongo();
 // available routes
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/other", require("./routes/other"));
+app.use("/api/principal", require("./routes/principal"));
 
 
 app.listen(port, () => {
