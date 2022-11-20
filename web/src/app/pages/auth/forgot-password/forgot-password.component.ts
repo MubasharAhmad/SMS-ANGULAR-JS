@@ -3,9 +3,9 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-reset-password',
-  templateUrl: './reset-password.component.html'
+  templateUrl: './forgot-password.component.html'
 })
-export class ResetPasswordComponent implements OnInit {
+export class ForgotPasswordComponent implements OnInit {
 
   isAlertHidden: boolean = true;
   alertMessage: string = "";
@@ -36,24 +36,20 @@ export class ResetPasswordComponent implements OnInit {
     this.isSendingEmail = false;
   }
 
-  onVarifyCode(){
-
-  }
-
-  async resendVarificationCode() {
+  async resendEmail() {
+    this.isSendingEmail = true;
     await this.sendEmail();
+    this.isSendingEmail = false;
   }
-
 
   async sendEmail() {
-    const response = await fetch(`${environment.API_URL}/api/auth/varificationEmail`, {
+    const response = await fetch(`${environment.API_URL}/api/auth/forgotPassword`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         email: this.email,
-        purpose: "ResetPassword"
       })
     });
     const data = await response.json();

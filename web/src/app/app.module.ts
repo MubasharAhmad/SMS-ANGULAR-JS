@@ -1,22 +1,25 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+
+import { LogoComponent } from './Components/logo/logo.component';
+import { NavbarComponent } from './Components/navbar/navbar.component';
+import { AlertComponent } from './Components/alert/alert.component';
+import { FooterComponent } from './Components/footer/footer.component';
+
+import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
-import { HomeComponent } from './pages/home/home.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NavbarComponent } from './Components/navbar/navbar.component';
-import { LogoComponent } from './Components/logo/logo.component';
-import { FormsModule } from '@angular/forms';
-import { AlertComponent } from './Components/alert/alert.component';
-import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
-import { ChangePasswordComponent } from './pages/auth/change-password/change-password.component';
+import { ActivateAccountComponent } from './pages/auth/activate-account/activate-account.component';
 import { RegisteredAccountComponent } from './pages/auth/registered-account/registered-account.component';
-import { VarifyAccountComponent } from './pages/auth/varify-account/varify-account.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './pages/auth/change-password/change-password.component';
+
 import { PrincipalComponent } from './pages/principal/principal/principal.component';
 import { PrincipalSidebarComponent } from './pages/principal/principal-sidebar/principal-sidebar.component';
-import { FooterComponent } from './Components/footer/footer.component';
 import { PrincipalDashboardComponent } from './pages/principal/principal-dashboard/principal-dashboard.component';
 import { ClassesComponent } from './pages/principal/classes/classes.component';
 import { SubjectsComponent } from './pages/principal/subjects/subjects.component';
@@ -42,10 +45,10 @@ import { AddClassComponent } from './pages/principal/add-class/add-class.compone
     NavbarComponent,
     LogoComponent,
     AlertComponent,
-    ResetPasswordComponent,
+    ForgotPasswordComponent,
     ChangePasswordComponent,
     RegisteredAccountComponent,
-    VarifyAccountComponent,
+    ActivateAccountComponent,
     PrincipalComponent,
     PrincipalSidebarComponent,
     FooterComponent,

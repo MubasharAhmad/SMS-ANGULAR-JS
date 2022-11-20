@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -94,7 +95,7 @@ export class RegisterComponent implements OnInit {
     }
 
     if (this.nameError === "" && this.emailError === "" && this.passwordError === "" && this.cpasswordError === "") {
-      let data = await fetch('http://localhost:3001/api/auth/register', {
+      let data = await fetch(`${environment.API_URL}/api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -118,7 +119,7 @@ export class RegisterComponent implements OnInit {
         this.alertMessage = res.msg;
         this.isAlertHidden = false;
         localStorage.setItem('email', this.email);
-        location.pathname = `/varifyaccount`;
+        location.pathname = `/activateaccount`;
       }
     }
     this.isSigninUp = false;

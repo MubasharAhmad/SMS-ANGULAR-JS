@@ -3,9 +3,9 @@ import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-varify-account',
-  templateUrl: './varify-account.component.html'
+  templateUrl: './activate-account.component.html'
 })
-export class VarifyAccountComponent implements OnInit {
+export class ActivateAccountComponent implements OnInit {
 
   isAlertHidden: boolean = true;
   alertMessage: string = "";

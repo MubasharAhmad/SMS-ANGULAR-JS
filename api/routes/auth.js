@@ -54,6 +54,7 @@ router.post(
                     return res.status(400).json({ success, msg: "User with this email already exists" });
                 }
             }
+
             // encrypt password using bcrypto
             const salt = await bcrypt.genSalt(10);
             const securedPassword = await bcrypt.hash(req.body.password, salt);
@@ -69,7 +70,6 @@ router.post(
             // send email
             const response = await axios.post(`${API_URL}/api/auth/varificationEmail`, {
                 email: user.email,
-                purpose: "SignUp",
                 userAgent: req.body.userAgent,
                 vendor: req.body.vendor
             });
@@ -157,21 +157,15 @@ router.post(
     }
 );
 
-
-
 router.post('/varificationEmail', async (req, res) => {
     let success = false;
     try {
         const user = await User.findOne({ email: req.body.email });
-        const purpose = req.body.purpose;
         if (!user) {
             return res.status(400).json({ success, msg: "Invalid Token" });
         }
-        if (purpose === "SignUp" && user.isActived) {
+        if (user.isActived) {
             return res.status(400).json({ success, msg: "Account is already activated" });
-        }
-        if (purpose === "ResetPassword" && user.isActived) {
-            return res.status(400).json({ success, msg: "Account is not activated" });
         }
         const lastVarification = await Varification.findOne({ email: req.body.email });
         if (lastVarification) {
@@ -187,18 +181,14 @@ router.post('/varificationEmail', async (req, res) => {
         const mailOptions = {
             from: Transporter_Email,
             to: user.email,
-            subject: `${purpose == "SignUp"? 'Welcome':'Reset'}`,
+            subject: `'Welcome'`,
             html: `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
-            ${purpose === "SignUp" ? `<h1>Welcome To The GLORIOUS Future School</h1>
+            <h1>Welcome To The GLORIOUS Future School</h1>
             <p>Make sure this is you</p>
             <p>Device Details</p>
             <p>Name: ${req.body.plateform} , Browser: ${req.body.vendor}</p>
-            <p>This is Your Varification Code: <b>${code}</b></p>` : `<h1>Reset Password</h1>
-            <p>Make sure this is you, if not you then ignore this email.</p>
-            <p>This is Varification Code: <b>${code}</b></p>
-            <p>Do not share this code with anyone.</p>
-            `}
+            <p>This is Your Varification Code: <b>${code}</b></p>
             <p>If you have any problem with your account, please
             <a href="${WEB_URL}/#contact" style="border: none;
             color: #4c78af;
@@ -254,6 +244,109 @@ router.post("/varify", async (req, res) => {
         res.status(500).send({ success, msg: "Internal Server Error" });
     }
 });
+
+router.post("/forgotPassword", async (req, res) => {
+    let success = false;
+    try {
+        let user = await User.findOne({ email: req.body.email });
+        if (!user) {
+            return res.status(400).json({ success, msg: "Invalid Credentials" });
+        }
+        // create token for email jwt
+        let data = {
+            email: req.body.email
+        };
+        const authToken = jwt.sign(data,
+            JWT_SECRET, {
+            expiresIn: "1h"
+        });
+        
+        // send email to user
+        const mailOptions = {
+            from: Transporter_Email,
+            to: user.email,
+            subject: `'Forgot Password'`,
+            html: `<div style="text-align: center">
+            <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
+            <h1>The GLORIOUS Future School</h1>
+            <p>You are receiving this because you (or someone else) have requested the forgot of the password for your account.</p>
+            <p>Please click on the following link to complete the process:</p>
+            <a href="${WEB_URL}/changepassword?token=${authToken}" style="text-color: #4c78af;">Change Password</a>
+            <p>If you did not request this, please ignore this email and your password will remain unchanged.</p>
+            <p>Thanks for using our service.</p>
+            <p>If you have any problem with your account, please
+            <a href="${WEB_URL}/#contact" style="border: none;
+            color: #4c78af;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            cursor: pointer;
+            font-size: 16px;">Contact Us.</a></p>
+            <p>Thanks for using our service.</p>
+            </div>`
+        };
+        transporter.sendMail(mailOptions, function (error, info) {
+            if (error) {
+                res.status(500).send({ success, msg: "Internal Server Error" });
+            }
+            else {
+                success = true;
+                res.status(200).json({ success, msg: "Email Sent Successfully" });
+            }
+        });
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send({ success, msg: "Internal Server Error" });
+    }
+});
+
+
+router.post(
+    "/changePassword",
+    [
+        body("token", "Please enter token").notEmpty(),
+        body("password", "Please enter a password with 8 or more characters").isLength({
+            min: 8
+        })
+    ],
+    async (req, res) => {
+        const errors = validationResult(req);
+        let success = false;
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ success, errors: errors.array() });
+        }
+        try {
+            let token = req.body.token;
+            let password = req.body.password;
+            if (!token) {
+                return res.status(400).json({ success, msg: "Invalid Token" });
+            }
+            if (!password) {
+                return res.status(400).json({ success, msg: "Invalid Password" });
+            }
+            jwt.verify(token, JWT_SECRET, async (err, decoded) => {
+                if (err) {
+                    return res.status(400).json({ success, msg: "Invalid Token" });
+                }
+                let user = await User.findOne({ email: decoded.email });
+                if (!user) {
+                    return res.status(400).json({ success, msg: "Invalid Token" });
+                }
+                // encrypt password using bcrypto
+                const salt = await bcrypt.genSalt(10);
+                const securedPassword = await bcrypt.hash(req.body.password, salt);
+                user.password = securedPassword;
+                await user.save();
+                success = true;
+                res.status(200).json({ success, msg: "Password Changed Successfully" });
+            });
+        }
+        catch (error) {
+            res.status(500).send({ success, msg: "Internal Server Error" });
+        }
+    }
+);
 
 
 module.exports = router;

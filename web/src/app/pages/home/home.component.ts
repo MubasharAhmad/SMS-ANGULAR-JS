@@ -1,5 +1,6 @@
 import { Component, OnInit, SimpleChange } from '@angular/core';
 import { ViewportScroller } from "@angular/common";
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-home',
@@ -67,7 +68,7 @@ export class HomeComponent implements OnInit {
     }
 
     if (this.firstNameError == "" && this.emailError == "" && this.messageError == "") {
-      let data = await fetch("http://localhost:3001/api/other/message", {
+      let data = await fetch(`${environment.API_URL}/api/other/message`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

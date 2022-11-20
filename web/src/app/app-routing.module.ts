@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChangePasswordComponent } from './pages/auth/change-password/change-password.component';
+
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/auth/login/login.component';
 import { RegisterComponent } from './pages/auth/register/register.component';
-import { VarifyAccountComponent } from './pages/auth/varify-account/varify-account.component';
+import { ActivateAccountComponent } from './pages/auth/activate-account/activate-account.component';
 import { RegisteredAccountComponent } from './pages/auth/registered-account/registered-account.component';
-import { ResetPasswordComponent } from './pages/auth/reset-password/reset-password.component';
+import { ForgotPasswordComponent } from './pages/auth/forgot-password/forgot-password.component';
+import { ChangePasswordComponent } from './pages/auth/change-password/change-password.component';
+
 import { PrincipalComponent } from './pages/principal/principal/principal.component';
 import { PrincipalDashboardComponent } from './pages/principal/principal-dashboard/principal-dashboard.component';
 import { ClassesComponent } from './pages/principal/classes/classes.component';
@@ -27,16 +29,10 @@ const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
-  { path: 'varifyaccount', component: VarifyAccountComponent },
   { path: 'registeredaccount', component: RegisteredAccountComponent },
-  { path: 'resetpassword', component: ResetPasswordComponent },
+  { path: 'activateaccount', component: ActivateAccountComponent },
+  { path: 'forgotpassword', component: ForgotPasswordComponent },
   { path: 'changepassword', component: ChangePasswordComponent },
-  // { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: '', component: HomeComponent, pathMatch: 'full' },
-  { path: 'login', component: LoginComponent, pathMatch: 'full' },
-  { path: 'register', component: RegisterComponent, pathMatch: 'full' },
-  { path: 'resetpassword', component: ResetPasswordComponent, pathMatch: 'full' },
-  { path: 'changepassword', component: ChangePasswordComponent, pathMatch: 'full' },
   {
     path: 'principal', component: PrincipalComponent,
     children: [
@@ -51,10 +47,10 @@ const routes: Routes = [
       { path: 'attendances', component: AttendancesComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentsComponent, pathMatch: 'full' },
       { path: 'Reports', component: ReportsComponent, pathMatch: 'full' },
-      { path: 'fees', component: FeesComponent , pathMatch: 'full' },
-      { path: 'salaries', component: SalariesComponent , pathMatch: 'full' },
-      { path: 'news', component: NewsComponent , pathMatch: 'full' },
-      { path: 'chats', component: ChatsComponent , pathMatch: 'full' },
+      { path: 'fees', component: FeesComponent, pathMatch: 'full' },
+      { path: 'salaries', component: SalariesComponent, pathMatch: 'full' },
+      { path: 'news', component: NewsComponent, pathMatch: 'full' },
+      { path: 'chats', component: ChatsComponent, pathMatch: 'full' },
     ]
   }];
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -43,7 +44,7 @@ export class LoginComponent implements OnInit {
     }
 
     if (this.emailError == "" && this.pwdError == "") {
-      let data = await fetch("http://localhost:3001/api/auth/login", {
+      let data = await fetch(`${environment.API_URL}/api/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
