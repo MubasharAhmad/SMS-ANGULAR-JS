@@ -7,9 +7,9 @@
             <ul class="space-y-2 pb-2">
                <li>
                   <a routerLink="/principal/dashboard" (click)="changeHeading('Dashboard')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-1 py-2 hover:bg-gray-100 group">
-                     <svg class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75"
-                        fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                     class="{{heading==='Dashboard'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <svg class="w-6 h-6 transition duration-75" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
                         <path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path>
                         <path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path>
                      </svg>
@@ -18,8 +18,8 @@
                </li>
                <li>
                   <a routerLink="/principal/classes" (click)="changeHeading('Classes')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Classes'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-landmark"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Classes</span>
@@ -27,8 +27,8 @@
                </li>
                <li>
                   <a routerLink="/principal/subjects" (click)="changeHeading('Subjects')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Subjects'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-book"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Subjects</span>
@@ -37,8 +37,8 @@
                <li class="text-gray-500 px-2">Staff</li>
                <li>
                   <a routerLink="/principal/teachers" (click)="changeHeading('Teachers')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Teachers'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-person-chalkboard"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Teachers</span>
@@ -46,8 +46,8 @@
                </li>
                <li>
                   <a routerLink="/principal/clerks" (click)="changeHeading('Clerks')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Clerks'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-user-pen"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Clerks</span>
@@ -56,8 +56,8 @@
                <li class="text-gray-500 px-2">Action</li>
                <li>
                   <a routerLink="/principal/timetable" (click)="changeHeading('Time Table')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Time Table'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-clock"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Time Table</span>
@@ -65,8 +65,8 @@
                </li>
                <li>
                   <a routerLink="/principal/attendances" (click)="changeHeading('Attendances')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Attendances'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-user-check"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Attendances</span>
@@ -74,8 +74,8 @@
                </li>
                <li>
                   <a routerLink="/principal/assignments" (click)="changeHeading('Assignments')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Assignments'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-book"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Assignments</span>
@@ -84,8 +84,8 @@
                <li class="text-gray-500 px-2">Reports</li>
                <li>
                   <a routerLink="/principal/reports" (click)="changeHeading('Reports')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Reports'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-regular fa-file-word"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Reports</span>
@@ -94,8 +94,8 @@
                <li class="text-gray-500 px-2">Payments</li>
                <li>
                   <a routerLink="/principal/fees" (click)="changeHeading('Fees')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Fees'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-money-check-dollar"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Fees</span>
@@ -103,8 +103,8 @@
                </li>
                <li>
                   <a routerLink="/principal/salaries" (click)="changeHeading('Salaries')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Salaries'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-money-check-dollar"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Salaries</span>
@@ -113,8 +113,8 @@
                <li class="text-gray-500 px-2">Others</li>
                <li>
                   <a routerLink="/principal/news" (click)="changeHeading('News')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='News'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-newspaper"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">News</span>
@@ -122,8 +122,8 @@
                </li>
                <li>
                   <a routerLink="/principal/chats" (click)="changeHeading('Chats')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Chats'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-comments"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Chats</span>
@@ -131,8 +131,8 @@
                </li>
                <li>
                   <a routerLink="/principal/applications" (click)="changeHeading('Applications')"
-                     class="text-base text-gray-900 font-normal rounded-lg flex items-center p-2 hover:bg-gray-100 group">
-                     <div class="w-6 h-6 text-gray-500 group-hover:text-gray-900 transition duration-75">
+                     class="{{heading==='Applications'? 'bg-indigo-500 hover:bg-indigo-600 text-white':'bg-white hover:bg-gray-100 text-gray-500 hover:text-gray-900'}} text-base font-normal rounded-lg flex items-center p-2 group">
+                     <div class="w-6 h-6 transition duration-75">
                         <i class="fa-solid fa-book"></i>
                      </div>
                      <span class="ml-3 flex-1 whitespace-nowrap">Applications</span>

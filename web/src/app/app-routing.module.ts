@@ -49,7 +49,7 @@ const routes: Routes = [
       { path: 'timetable', component: TimetableComponent, pathMatch: 'full' },
       { path: 'attendances', component: AttendancesComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentsComponent, pathMatch: 'full' },
-      { path: 'Reports', component: ReportsComponent, pathMatch: 'full' },
+      { path: 'reports', component: ReportsComponent, pathMatch: 'full' },
       { path: 'fees', component: FeesComponent, pathMatch: 'full' },
       { path: 'salaries', component: SalariesComponent, pathMatch: 'full' },
       { path: 'news', component: NewsComponent, pathMatch: 'full' },

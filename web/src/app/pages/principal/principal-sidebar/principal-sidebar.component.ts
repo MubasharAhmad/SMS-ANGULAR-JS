@@ -6,6 +6,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class PrincipalSidebarComponent implements OnInit {
 
+  @Input() heading: string = 'Dashboard';
   @Output() onHeadingChanged: EventEmitter<string> = new EventEmitter<string>();
   @Input() hidden: string = 'hidden';
   constructor() { }
@@ -16,4 +17,6 @@ export class PrincipalSidebarComponent implements OnInit {
   changeHeading(heading: string) {
     this.onHeadingChanged.emit(heading);
   }
+
+  
 }
