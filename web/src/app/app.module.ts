@@ -40,6 +40,7 @@ import { ClerkDashboardComponent } from './pages/clerk/clerk-dashboard/clerk-das
 import { TeacherComponent } from './pages/teacher/teacher/teacher.component';
 import { ClerkComponent } from './pages/clerk/clerk/clerk.component';
 import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher-sidebar.component';
+import { ClerkSidebarComponent } from './pages/clerk/clerk-sidebar/clerk-sidebar.component';
 
 
 @NgModule({
@@ -78,6 +79,7 @@ import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher
     TeacherComponent,
     ClerkComponent,
     TeacherSidebarComponent,
+    ClerkSidebarComponent,
   ],
   imports: [
     BrowserModule,
