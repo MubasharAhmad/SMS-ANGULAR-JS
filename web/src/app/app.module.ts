@@ -43,7 +43,7 @@ import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher
 import { EditClassComponent } from './pages/principal/edit-class/edit-class.component';
 import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.component';
 import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
-
+import { ClerkSidebarComponent } from './pages/clerk/clerk-sidebar/clerk-sidebar.component';
 
 @NgModule({
   declarations: [
@@ -84,6 +84,7 @@ import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subjec
     EditClassComponent,
     AddSubjectComponent,
     EditSubjectComponent,
+    ClerkSidebarComponent,
   ],
   imports: [
     BrowserModule,

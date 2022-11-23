@@ -30,6 +30,8 @@ import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/tea
 import { EditClassComponent } from './pages/principal/edit-class/edit-class.component';
 import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.component';
 import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
+import { ClerkComponent } from './pages/clerk/clerk/clerk.component';
+import { ClerkDashboardComponent } from './pages/clerk/clerk-dashboard/clerk-dashboard.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -71,20 +73,31 @@ const routes: Routes = [
       { path: 'news', component: NewsComponent, pathMatch: 'full' },
       { path: 'chats', component: ChatsComponent, pathMatch: 'full' },
       { path: 'applications', component: ApplicationsComponent, pathMatch: 'full' },
+      // if other then redirect
+      { path: '**', redirectTo: 'dashboard' }
     ]
   },
   {
     path: 'teacher', component: TeacherComponent,
     children: [
-      { path: '', component: TeacherDashboardComponent, pathMatch: 'full' },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: TeacherDashboardComponent, pathMatch: 'full' },
+      // if other then redirect
+      { path: '**', redirectTo: 'dashboard' }
     ]
   },
   {
-    path: 'clerk', component: ClerksComponent,
+    path: 'clerk', component: ClerkComponent,
+    children: [
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+      { path: 'dashboard', component: ClerkDashboardComponent, pathMatch: 'full' },
+      // if other then redirect
+      { path: '**', redirectTo: 'dashboard' }
+    ]
   },
+  // if other then redirect
+  { path: '**', redirectTo: '' }
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

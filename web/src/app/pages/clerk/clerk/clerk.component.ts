@@ -2,14 +2,22 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-clerk',
-  templateUrl: './clerk.component.html',
-  styleUrls: ['./clerk.component.css']
+  templateUrl: './clerk.component.html'
 })
 export class ClerkComponent implements OnInit {
 
+  heading: string = "Dashboard";
+  sideBarHide: string = 'hidden';
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  changeHeading(heading: string) {
+    this.heading = heading;
+  }
+
+  togglSideBar(h: string) {
+    this.sideBarHide = h;
+  }
 }
