@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './subjects.component.html',
 })
 export class SubjectsComponent implements OnInit {
+  subjects: any = [];
 
   constructor() { }
 

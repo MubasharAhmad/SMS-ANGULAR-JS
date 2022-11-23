@@ -40,6 +40,9 @@ import { ClerkDashboardComponent } from './pages/clerk/clerk-dashboard/clerk-das
 import { TeacherComponent } from './pages/teacher/teacher/teacher.component';
 import { ClerkComponent } from './pages/clerk/clerk/clerk.component';
 import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher-sidebar.component';
+import { EditClassComponent } from './pages/principal/edit-class/edit-class.component';
+import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.component';
+import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
 
 
 @NgModule({
@@ -78,6 +81,9 @@ import { TeacherSidebarComponent } from './pages/teacher/teacher-sidebar/teacher
     TeacherComponent,
     ClerkComponent,
     TeacherSidebarComponent,
+    EditClassComponent,
+    AddSubjectComponent,
+    EditSubjectComponent,
   ],
   imports: [
     BrowserModule,

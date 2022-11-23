@@ -1,74 +1,93 @@
-<div class="mx-2 md:mx-5 bg-white p-3 mt-3 shadow-md overflow-x-auto">
-    <p>Add a new class into school <a href="#" class="text-indigo-700 hover:text-indigo-500">here.</a></p>
-    <div class="">
-        <table class="table-auto w-full mt-2 text-left">
-            <thead>
-                <tr class="bg-indigo-600 text-white">
-                    <th class="border px-4 py-2"  scope="col">#</th>
-                    <th class="border px-4 py-2"  scope="col">Name</th>
-                    <th class="border px-4 py-2"  scope="col">Description</th>
-                    <th class="border px-4 py-2"  scope="col">Students</th>
-                    <th class="border px-4 py-2"  scope="col">Fee/Student</th>
-                    <th class="border px-4 py-2"  scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody class="text-gray-800">
-                <tr>
-                    <th class="border px-4 py-2" scope="row">1</th>
-                    <td class="border px-4 py-2">Brandon Jacob</td>
-                    <td class="border px-4 py-2">Designer</td>
-                    <td class="border px-4 py-2">28</td>
-                    <td class="border px-4 py-2">1000</td>
-                    <td class="border px-4 py-2">
-                        <i class="fas fa-edit m-1 px-1 cursor-pointer text-indigo-700 hover:text-indigo-500"></i>
-                        <i class="fas fa-trash m-1 px-1 cursor-pointer text-red-700 hover:text-red-500"></i>
-                    </td>
-                </tr>
-                <tr class="bg-indigo-50">
-                    <th class="border px-4 py-2" scope="row">1</th>
-                    <td class="border px-4 py-2">Brandon Jacob</td>
-                    <td class="border px-4 py-2">Designer</td>
-                    <td class="border px-4 py-2">28</td>
-                    <td class="border px-4 py-2">1000</td>
-                    <td class="border px-4 py-2">
-                        <i class="fas fa-edit m-1 px-1 cursor-pointer text-indigo-700 hover:text-indigo-500"></i>
-                        <i class="fas fa-trash m-1 px-1 cursor-pointer text-red-700 hover:text-red-500"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="border px-4 py-2" scope="row">1</th>
-                    <td class="border px-4 py-2">Brandon Jacob</td>
-                    <td class="border px-4 py-2">Designer</td>
-                    <td class="border px-4 py-2">28</td>
-                    <td class="border px-4 py-2">1000</td>
-                    <td class="border px-4 py-2">
-                        <i class="fas fa-edit m-1 px-1 cursor-pointer text-indigo-700"></i>
-                        <i class="fas fa-trash m-1 px-1 cursor-pointer text-red-700"></i>
-                    </td>
-                </tr>
-                <tr class="bg-indigo-50">
-                    <th class="border px-4 py-2" scope="row">1</th>
-                    <td class="border px-4 py-2">Brandon Jacob</td>
-                    <td class="border px-4 py-2">Designer</td>
-                    <td class="border px-4 py-2">28</td>
-                    <td class="border px-4 py-2">1000</td>
-                    <td class="border px-4 py-2">
-                        <i class="fas fa-edit m-1 px-1 cursor-pointer text-indigo-700"></i>
-                        <i class="fas fa-trash m-1 px-1 cursor-pointer text-red-700"></i>
-                    </td>
-                </tr>
-                <tr>
-                    <th class="border px-4 py-2" scope="row">1</th>
-                    <td class="border px-4 py-2">Brandon Jacob</td>
-                    <td class="border px-4 py-2">Designer</td>
-                    <td class="border px-4 py-2">28</td>
-                    <td class="border px-4 py-2">1000</td>
-                    <td class="border px-4 py-2">
-                        <i class="fas fa-edit m-1 px-1 cursor-pointer text-indigo-700"></i>
-                        <i class="fas fa-trash m-1 px-1 cursor-pointer text-red-700"></i>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+<!-- create table in tailwind css -->
+<div class="bg-white mx-4 mt-6 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+    <div class="mb-4 flex items-center justify-between">
+        <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Last added Classes</h3>
+            <span class="text-base font-normal text-gray-500">This is a list of last added classes</span>
+        </div>
+        <div>
+            <a routerLink="add" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                Add new class
+            </a>
+        </div>
+    </div>
+    <div class="flex flex-col mt-8">
+        <div class="overflow-x-auto rounded-lg">
+            <div class="align-middle inline-block min-w-full">
+                <div class="shadow overflow-hidden sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    No
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Name
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Email
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Role
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Applied Date
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Actions
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <ng-container *ngIf="classes.length > 0;">
+                                <tr *ngFor="let class of classes">
+                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                        {{ class.no }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ class.name }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ class.email }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ class.role }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ class.date }}
+                                    </td>
+                                    <!-- view and accept button -->
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        <button class="text-gray-400 hover:text-indigo-500 font-bold py-2 px-4 rounded">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                        <button class="text-gray-400 hover:text-green-500 font-bold py-2 px-4 rounded">
+                                            <i class="fa-solid fa-check"></i>
+                                        </button>
+                                        <button class="text-gray-400 hover:text-red-500 font-bold py-2 px-4 rounded">
+                                            <i class="fa-solid fa-xmark"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="classes.length === 0;">
+                                <tr>
+                                    <td colspan="5"
+                                        class="p-4 text-center whitespace-nowrap text-sm font-normal text-gray-900">
+                                        No applications found
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

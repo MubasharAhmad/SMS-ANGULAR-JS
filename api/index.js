@@ -18,6 +18,9 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/other", require("./routes/other"));
 app.use("/api/principal", require("./routes/principal"));
 
+app.get("/", (req, res) => {
+    res.send("Hello World!");
+});
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);

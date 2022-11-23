@@ -27,6 +27,9 @@ import { AddClassComponent } from './pages/principal/add-class/add-class.compone
 import { ApplicationsComponent } from './pages/principal/applications/applications.component';
 import { TeacherComponent } from './pages/teacher/teacher/teacher.component';
 import { TeacherDashboardComponent } from './pages/teacher/teacher-dashboard/teacher-dashboard.component';
+import { EditClassComponent } from './pages/principal/edit-class/edit-class.component';
+import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.component';
+import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -41,9 +44,22 @@ const routes: Routes = [
     children: [
       { path: '', component: PrincipalDashboardComponent, pathMatch: 'full' },
       { path: 'dashboard', component: PrincipalDashboardComponent, pathMatch: 'full' },
-      { path: 'classes', component: ClassesComponent, pathMatch: 'full' },
-      { path: 'addclass', component: AddClassComponent, pathMatch: 'full' },
-      { path: 'subjects', component: SubjectsComponent, pathMatch: 'full' },
+      {
+        path: 'classes',
+        children: [
+          { path: '', component: ClassesComponent, pathMatch: 'full' },
+          { path: 'add', component: AddClassComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditClassComponent, pathMatch: 'full' }
+        ]
+      },
+      {
+        path: 'subjects',
+        children: [
+          { path: '', component: SubjectsComponent, pathMatch: 'full' },
+          { path: 'add', component: AddSubjectComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditSubjectComponent, pathMatch: 'full' }
+        ]
+      },
       { path: 'teachers', component: TeachersComponent, pathMatch: 'full' },
       { path: 'clerks', component: ClerksComponent, pathMatch: 'full' },
       { path: 'timetable', component: TimetableComponent, pathMatch: 'full' },
