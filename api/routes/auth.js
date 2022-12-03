@@ -47,7 +47,7 @@ router.post(
             // see if user exists
             let user = await User.findOne({ email: req.body.email });
             if (user) {
-                if (user.isActived === false) {
+                if (user.isActived === false && !(user.isVerified === true || user.isRejected === true)) {
                     await user.remove();
                 }
                 else {
@@ -107,6 +107,9 @@ router.post(
             let user = await User.findOne({ email: req.body.email });
             if (!user || (user && user.isActived === false)) {
                 return res.status(400).json({ success, msg: "Invalid Credentials" });
+            }
+            if (user.isRejected) {
+                return res.status(400).json({ success, msg: "Your application rejected from principal" });
             }
             if (user.isVerified === false) {
                 return res.status(400).json({ success, msg: "You are not verified from principal" });

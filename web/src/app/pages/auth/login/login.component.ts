@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
     return re.test(email);
   }
 
-  handleClose($event: boolean) {
+  handleAlertClose($event: boolean) {
     this.isAlertHidden = $event;
   }
 }
