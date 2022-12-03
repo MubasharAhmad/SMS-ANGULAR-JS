@@ -1,69 +1,114 @@
-<div class="mx-2 mt-6 md:mx-5 bg-white p-3 rounded-lg shadow-md overflow-x-auto">
+<div class="mx-2 mt-6 md:mx-5 bg-white p-3 rounded-lg shadow-md overflow-x-auto sm:p-6 xl:p-8">
+    <button (click)="onBack()" class="mb-3 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
+        <i class="fa-solid fa-circle-arrow-left"></i> Back
+    </button>
     <div class="mb-4 flex items-center justify-between">
         <div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Add Class</h3>
             <span class="text-base font-normal text-gray-500">You can add a new class into school from here.</span>
         </div>
     </div>
-    <div class="flex flex-col">
-        <div class="flex flex-row">
-            <div class="flex flex-col w-1/2">
-                <label for="name" class="text-gray-700">Name</label>
-                <input type="text" name="name" id="name"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+    <form (submit)="onSubmit()">
+        <div class="flex flex-col">
+            <div class="flex flex-row">
+                <div class="flex flex-col w-1/2">
+                    <label for="name" class="text-gray-700">Name</label>
+                    <input type="text" name="name" id="name"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                </div>
+                <div class="flex flex-col w-1/2 ml-2">
+                    <label for="fee" class="text-gray-700">Fee/Student</label>
+                    <input type="number" name="fee" id="fee"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                </div>
             </div>
-            <div class="flex flex-col w-1/2 ml-2">
-                <label for="fee" class="text-gray-700">Fee/Student</label>
-                <input type="number" name="fee" id="fee"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
+            <div class="flex flex-row mt-2">
+                <div class="flex flex-col w-full">
+                    <label for="status" class="text-gray-700">Status</label>
+                    <select name="status" id="status"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        <option value="1">Active</option>
+                        <option value="2">Inactive</option>
+                    </select>
+                </div>
+            </div>
+            <div class="flex flex-row mt-2">
+                <div class="flex flex-col w-full">
+                    <label for="description" class="text-gray-700">Description</label>
+                    <textarea name="description" id="description" rows="3"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                </div>
+            </div>
+            <span class="mt-6 text-base font-normal text-gray-500">Add some subjects with respective teacher into Class.</span>
+            <div class="flex flex-col md:flex-row mt-2 justify-center w-full gap-4">
+                <div class="flex flex-col grow">
+                    <label for="subject" class="text-gray-700">Subject</label>
+                    <select name="subject" id="subject"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        <option value="1">Subject 1</option>
+                        <option value="2">Subject 2</option>
+                    </select>
+                </div>
+                <div class="flex flex-col grow">
+                    <label for="teacher" class="text-gray-700">Teacher</label>
+                    <select name="teacher" id="teacher"
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        <option value="1">Teacher 1</option>
+                        <option value="2">Teacher 2</option>
+                    </select>
+                </div>
+                <div class="text-center my-auto mb-1">
+                    <button type="button" class=" btn-success rounded px-2 py-1">
+                        <i class="fa-solid fa-plus"></i> Add
+                    </button>
+                </div>
+            </div>
+            <!-- table to show added subjects -->
+            <div class="flex flex-col mt-2">
+                <table class="min-w-full divide-y divide-gray-200">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th scope="col"
+                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                No
+                            </th>
+                            <th scope="col"
+                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Subject
+                            </th>
+                            <th scope="col"
+                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Teacher
+                            </th>
+                            <th scope="col"
+                                class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr>
+                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                ASAD
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                ASAD
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                ASAD
+                            </td>
+                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                <button type="button" class="rounded px-2 py-1 hover:text-gray-800">
+                                    <i class="fa-solid fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
-        <div class="flex flex-row mt-2">
-            <div class="flex flex-col w-1/2">
-                <label for="teacher" class="text-gray-700">Teacher</label>
-                <select name="teacher" id="teacher"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
-                    <option value="1">Teacher 1</option>
-                    <option value="2">Teacher 2</option>
-                    <option value="3">Teacher 3</option>
-                </select>
-            </div>
-            <div class="flex flex-col w-1/2 ml-2">
-                <label for="status" class="text-gray-700">Status</label>
-                <select name="status" id="status"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
-                    <option value="1">Active</option>
-                    <option value="2">Inactive</option>
-                </select>
-            </div>
+        <div class="w-full text-center my-2">
+            <button type="submit" class="px-4 py-2 rounded-md btn-primary">Add Class</button>
         </div>
-        <div class="flex flex-row mt-2">
-            <div class="flex flex-col w-1/2">
-                <label for="days" class="text-gray-700">Days</label>
-                <select name="days" id="days"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent">
-                    <option value="1">Monday</option>
-                    <option value="2">Tuesday</option>
-                    <option value="3">Wednesday</option>
-                    <option value="4">Thursday</option>
-                    <option value="5">Friday</option>
-                    <option value="6">Saturday</option>
-                    <option value="7">Sunday</option>
-                </select>
-            </div>
-        </div>
-        <div class="flex flex-row mt-2">
-            <div class="flex flex-col w-full">
-                <label for="description" class="text-gray-700">Description</label>
-                <textarea name="description" id="description" rows="3"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:border-transparent"></textarea>
-            </div>
-        </div>
-    </div>
-    <div class="flex flex-row mt-2">
-        <div class="flex flex-col w-1/2">
-            <button type="submit"
-                class="bg-indigo-600 text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-opacity-50">Submit</button>
-        </div>
-    </div>
+    </form>
 </div>

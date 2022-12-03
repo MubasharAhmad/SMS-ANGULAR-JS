@@ -11,4 +11,12 @@ export class AddClassComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onBack(): void {
+    // TODO: Navigate to the previous page
+    window.history.back();
+  }
+
+  onSubmit(): void {
+    console.log('submit');
+  }
 }

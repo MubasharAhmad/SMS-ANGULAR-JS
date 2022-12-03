@@ -10,10 +10,6 @@ const SubjectSchema = new Schema({
         type: String,
         required: true
     },
-    class: {
-        type: Schema.Types.ObjectId,
-        ref: 'Class'
-    },
     date: {
         type: Date,
         default: Date.now
