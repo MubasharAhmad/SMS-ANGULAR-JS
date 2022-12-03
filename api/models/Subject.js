@@ -10,9 +10,27 @@ const SubjectSchema = new Schema({
         type: String,
         required: true
     },
-    date: {
+    createdDate: {
         type: Date,
         default: Date.now
+    },
+    addedBy: {
+        // email of the user who added the subject
+        type: String,
+        required: true
+    },
+    lastModifiedBy: {
+        // email of the user who last modified the subject
+        type: String,
+        required: true
+    },
+    lastModifiedDate: {
+        type: Date,
+        default: Date.now
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 })
 

@@ -1,3 +1,4 @@
+<app-alert [isHidden]=isAlertHidden message="{{alertMessage}}" type="{{alertType}}" (close)="handleAlertClose($event)"></app-alert>
 <!-- create table in tailwind css -->
 <div class="bg-white mx-4 mt-6 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
     <div class="mb-4 flex items-center justify-between">
@@ -28,15 +29,19 @@
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Email
+                                    Created By
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Role
+                                    Created Date
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Applied Date
+                                    Last Modified By
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Last Modified Date
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -46,31 +51,34 @@
                         </thead>
                         <tbody class="bg-white">
                             <ng-container *ngIf="subjects.length > 0;">
-                                <tr *ngFor="let subject of subjects">
+                                <tr *ngFor="let subject of subjects; let i=index">
                                     <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                        {{ subject.no }}
+                                        {{ i+1 }}
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
                                         {{ subject.name }}
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ subject.email }}
+                                        {{ subject.addedBy }}
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ subject.role }}
+                                        {{ getDate(subject.createdDate) }}
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ subject.date }}
+                                        {{ subject.lastModifiedBy }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ getDate(subject.lastModifiedDate) }}
                                     </td>
                                     <!-- view and accept button -->
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        <button class="text-gray-400 hover:text-indigo-500 font-bold py-2 px-4 rounded">
+                                        <button (click)="handleViewClick(subject.name, subject.description)" class="text-gray-400 hover:text-indigo-500 font-bold py-2 px-4 rounded">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
                                         <button class="text-gray-400 hover:text-green-500 font-bold py-2 px-4 rounded">
-                                            <i class="fa-solid fa-check"></i>
+                                            <i class="fa-solid fa-edit"></i>
                                         </button>
-                                        <button class="text-gray-400 hover:text-red-500 font-bold py-2 px-4 rounded">
+                                        <button (click)="deleteSubject(subject.name)" class="text-gray-400 hover:text-red-500 font-bold py-2 px-4 rounded">
                                             <i class="fa-solid fa-xmark"></i>
                                         </button>
                                     </td>
@@ -80,7 +88,7 @@
                                 <tr>
                                     <td colspan="6"
                                         class="p-4 text-center whitespace-nowrap text-sm font-normal text-gray-900">
-                                        No applications found
+                                        No subjects found
                                     </td>
                                 </tr>
                             </ng-container>
@@ -91,3 +99,5 @@
         </div>
     </div>
 </div>
+
+<app-model Title={{modelTitle}} Message={{modelMsg}} isHidden={{isModelHidden}} (onClose)="closeModel()"></app-model>

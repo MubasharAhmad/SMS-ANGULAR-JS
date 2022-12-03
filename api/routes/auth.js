@@ -5,6 +5,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const nodeMailer = require("nodemailer");
 const axios = require('axios')
+const sendEmail = require("../js/emailer");
 
 const User = require("../models/User");
 const Varification = require("../models/Varification");
@@ -122,11 +123,7 @@ router.post(
             success = true;
 
             // send email to user
-            const mailOptions = {
-                from: Transporter_Email,
-                to: req.body.email,
-                subject: "Welcome",
-                html: `<div style="text-align: center">
+            body = `<div style="text-align: center">
                 <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
                 <h1>Welcome To The GLORIOUS Future School</h1>
                 <p>Make sure this is you</p>
@@ -142,9 +139,8 @@ router.post(
                     cursor: pointer;
                     font-size: 16px;">Contact Us.</a></p>
                 <p>Thanks for using our service.</p>
-            </div>`
-            };
-            transporter.sendMail(mailOptions, function (error, info) {
+            </div>`;
+            sendEmail(req.body.email, "Welcome", body, function (error, info) {
                 if (error) {
                     console.log(error);
                     res.status(500).send({ success, msg: "Internal Server Error" });
@@ -157,7 +153,7 @@ router.post(
                 }
             };
             const authToken = jwt.sign(data, JWT_SECRET);
-            const redirectTo = user.role === "principal" ? "/principal" : user.role === "teacher"? "/teacher" : "/clerk";
+            const redirectTo = user.role === "principal" ? "/principal" : user.role === "teacher" ? "/teacher" : "/clerk";
             res.json({ success, authToken, redirectUrl: user.role });
         } catch (error) {
             console.error(error.message);
@@ -187,11 +183,8 @@ router.post('/varificationEmail', async (req, res) => {
             date: Date.now()
         });
         await varification.save();
-        const mailOptions = {
-            from: Transporter_Email,
-            to: user.email,
-            subject: `'Welcome'`,
-            html: `<div style="text-align: center">
+
+        body = `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
             <h1>Welcome To The GLORIOUS Future School</h1>
             <p>Make sure this is you</p>
@@ -207,10 +200,11 @@ router.post('/varificationEmail', async (req, res) => {
             cursor: pointer;
             font-size: 16px;">Contact Us.</a></p>
             <p>Thanks for using our service.</p>
-            </div>`
-        };
-        transporter.sendMail(mailOptions, function (error, info) {
+        </div>`
+
+        sendEmail(req.body.email, "Verify Email", body, function (error, info) {
             if (error) {
+                console.log(error);
                 res.status(500).send({ success, msg: "Internal Server Error" });
             }
             else {
@@ -269,13 +263,9 @@ router.post("/forgotPassword", async (req, res) => {
             JWT_SECRET, {
             expiresIn: "1h"
         });
-        
+
         // send email to user
-        const mailOptions = {
-            from: Transporter_Email,
-            to: user.email,
-            subject: `'Forgot Password'`,
-            html: `<div style="text-align: center">
+        body = `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
             <h1>The GLORIOUS Future School</h1>
             <p>You are receiving this because you (or someone else) have requested the forgot of the password for your account.</p>
@@ -292,9 +282,8 @@ router.post("/forgotPassword", async (req, res) => {
             cursor: pointer;
             font-size: 16px;">Contact Us.</a></p>
             <p>Thanks for using our service.</p>
-            </div>`
-        };
-        transporter.sendMail(mailOptions, function (error, info) {
+        </div>`
+        sendEmail(req.body.email, "Forgot Password", body, function (error, info) {
             if (error) {
                 res.status(500).send({ success, msg: "Internal Server Error" });
             }

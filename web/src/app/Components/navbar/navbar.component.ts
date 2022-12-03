@@ -23,7 +23,9 @@ export class NavbarComponent implements OnInit {
   }
 
   handleLogout() {
-    localStorage.removeItem('GFS-AUTH-TOKEN');
-    window.location.href = '/login';
+    if (confirm("Are you sure you want to logout?")) {
+      localStorage.removeItem("GFS-AUTH-TOKEN");
+      window.location.href = "/login";
+    }
   }
 }

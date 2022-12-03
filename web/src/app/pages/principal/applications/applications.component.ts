@@ -101,7 +101,7 @@ export class ApplicationsComponent implements OnInit {
   }
 
   handleViewClick = (email: string, msg: string) => {
-    this.modelTitle = email;
+    this.modelTitle = "Description of " + email;
     this.modelMsg = msg;
     this.isModelHidden = "";
   }

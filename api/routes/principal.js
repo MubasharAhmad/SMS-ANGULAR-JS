@@ -1,15 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { body, validationResult } = require("express-validator");
 const nodeMailer = require("nodemailer");
-const axios = require('axios')
+const sendEmail = require("../js/emailer");
 
 const User = require("../models/User");
 const fetchuser = require("../middleware/fetchuser");
-
-// url
-const API_URL = process.env.API_URL;
-const WEB_URL = process.env.WEB_URL;
 
 // for email sender
 const Transporter_Email = process.env.TRANSPORTER_EMAIL;
@@ -56,6 +51,13 @@ router.post(
             }
             user.isVerified = true;
             await user.save();
+            // send email to user
+            const subject = "Application Accepted";
+            const body = `<h1>Dear ${user.name},</h1>
+            <p>Your application has been accepted. You can now login to the system.</p>
+            <p>Thank you.</p>`;
+            sendEmail(user.email, subject, body);
+
             return res.status(200).json({ success: true, msg: "User verified" });
         } catch (err) {
             console.error(err.message);
@@ -78,6 +80,13 @@ router.post(
             }
             user.isRejected = true;
             await user.save();
+            // send email to user
+            const subject = "Application Rejected";
+            const body = `<h1>Dear ${user.name},</h1>
+            <p>Your application has been rejected. Please contact the school for more information.</p>
+            <p>Thank you.</p>`;
+            sendEmail(user.email, subject, body);
+            
             return res.status(200).json({ success: true, msg: "User's application rejected" });
         } catch (err) {
             console.error(err.message);
