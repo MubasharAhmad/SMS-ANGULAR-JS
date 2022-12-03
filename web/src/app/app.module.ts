@@ -45,6 +45,10 @@ import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.c
 import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
 import { ClerkSidebarComponent } from './pages/clerk/clerk-sidebar/clerk-sidebar.component';
 import { ModelComponent } from './Components/model/model.component';
+import { AddTeacherComponent } from './pages/principal/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './pages/principal/edit-teacher/edit-teacher.component';
+import { AddClerkComponent } from './pages/principal/add-clerk/add-clerk.component';
+import { EditClerkComponent } from './pages/principal/edit-clerk/edit-clerk.component';
 
 @NgModule({
   declarations: [
@@ -87,6 +91,10 @@ import { ModelComponent } from './Components/model/model.component';
     EditSubjectComponent,
     ClerkSidebarComponent,
     ModelComponent,
+    AddTeacherComponent,
+    EditTeacherComponent,
+    AddClerkComponent,
+    EditClerkComponent,
   ],
   imports: [
     BrowserModule,

@@ -32,6 +32,10 @@ import { AddSubjectComponent } from './pages/principal/add-subject/add-subject.c
 import { EditSubjectComponent } from './pages/principal/edit-subject/edit-subject.component';
 import { ClerkComponent } from './pages/clerk/clerk/clerk.component';
 import { ClerkDashboardComponent } from './pages/clerk/clerk-dashboard/clerk-dashboard.component';
+import { AddTeacherComponent } from './pages/principal/add-teacher/add-teacher.component';
+import { EditTeacherComponent } from './pages/principal/edit-teacher/edit-teacher.component';
+import { AddClerkComponent } from './pages/principal/add-clerk/add-clerk.component';
+import { EditClerkComponent } from './pages/principal/edit-clerk/edit-clerk.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -62,8 +66,22 @@ const routes: Routes = [
           { path: 'edit', component: EditSubjectComponent, pathMatch: 'full' }
         ]
       },
-      { path: 'teachers', component: TeachersComponent, pathMatch: 'full' },
-      { path: 'clerks', component: ClerksComponent, pathMatch: 'full' },
+      {
+        path: 'teachers',
+        children: [
+          { path: '', component: TeachersComponent, pathMatch: 'full' },
+          { path: 'add', component: AddTeacherComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditTeacherComponent, pathMatch: 'full' }
+        ]
+      },
+      {
+        path: 'clerks',
+        children: [
+          { path: '', component: ClerksComponent, pathMatch: 'full' },
+          { path: 'add', component: AddClerkComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditClerkComponent, pathMatch: 'full' }
+        ]
+      },
       { path: 'timetable', component: TimetableComponent, pathMatch: 'full' },
       { path: 'attendances', component: AttendancesComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentsComponent, pathMatch: 'full' },

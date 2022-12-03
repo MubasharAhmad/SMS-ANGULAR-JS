@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './teachers.component.html',
 })
 export class TeachersComponent implements OnInit {
+  teachers: any = [];
 
   constructor() { }
 

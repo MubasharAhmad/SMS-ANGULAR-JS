@@ -39,31 +39,30 @@
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
                 </div>
             </div>
-            <span class="mt-6 text-base font-normal text-gray-500">Add some subjects with respective teacher into Class.</span>
+            <span class="mt-6 text-base font-normal text-gray-500">Add some subjects with respective teacher into
+                Class.</span>
             <div class="flex flex-col md:flex-row mt-2 justify-center w-full gap-4">
                 <div class="flex flex-col grow">
                     <label for="subject" class="text-gray-700">Subject</label>
-                    <select name="subject" id="subject"
+                    <!-- for loop on subjects -->
+                    <select name="subject" id="subject" [(ngModel)]="subject"
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                        <option value="1">Subject 1</option>
-                        <option value="2">Subject 2</option>
+                        <option *ngFor="let subject of subjects;" [ngValue]="subject">{{subject}}</option>
                     </select>
                 </div>
                 <div class="flex flex-col grow">
                     <label for="teacher" class="text-gray-700">Teacher</label>
-                    <select name="teacher" id="teacher"
+                    <select name="teacher" id="teacher" [(ngModel)]="teacher"
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                        <option value="1">Teacher 1</option>
-                        <option value="2">Teacher 2</option>
+                        <option *ngFor="let teacher of teachers;" [ngValue]="teacher">{{teacher}}</option>
                     </select>
                 </div>
-                <div class="text-center my-auto mb-1">
+                <div (click)="addSubject()" class="text-center my-auto mb-[0.10rem]">
                     <button type="button" class=" btn-success rounded px-2 py-1">
                         <i class="fa-solid fa-plus"></i> Add
                     </button>
                 </div>
             </div>
-            <!-- table to show added subjects -->
             <div class="flex flex-col mt-2">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
@@ -87,22 +86,32 @@
                         </tr>
                     </thead>
                     <tbody class="bg-white">
-                        <tr>
-                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                ASAD
-                            </td>
-                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                ASAD
-                            </td>
-                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                ASAD
-                            </td>
-                            <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                <button type="button" class="rounded px-2 py-1 hover:text-gray-800">
-                                    <i class="fa-solid fa-trash"></i>
-                                </button>
-                            </td>
-                        </tr>
+                        <ng-container *ngIf="addedSubjects.length > 0;">
+                            <tr *ngFor="let addedSubject of addedSubjects; let i = index">
+                                <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                    {{ i+1 }}
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                    {{ addedSubject.subject }}
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                    {{ addedSubject.teacher }}
+                                </td>
+                                <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                    <button (click)="removeSubject(addedSubject.subject)" type="button" class="rounded px-2 py-1 hover:text-gray-800">
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        </ng-container>
+                        <ng-container *ngIf="addedSubjects.length === 0;">
+                            <tr>
+                                <td colspan="6"
+                                    class="p-4 text-center whitespace-nowrap text-sm font-normal text-gray-900">
+                                    No added subject found
+                                </td>
+                            </tr>
+                        </ng-container>
                     </tbody>
                 </table>
             </div>
