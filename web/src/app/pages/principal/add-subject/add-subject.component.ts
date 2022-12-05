@@ -64,6 +64,9 @@ export class AddSubjectComponent implements OnInit {
         this.isAlertHidden = false;
         this.subjectName = "";
         this.subjectDesc = "";
+        setTimeout(() => {
+          this.onBack();
+        }, 1000);
       }
       else {
         this.alertMessage = res.msg;

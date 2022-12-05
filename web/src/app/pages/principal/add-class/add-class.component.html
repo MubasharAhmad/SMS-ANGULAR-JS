@@ -13,30 +13,23 @@
             <div class="flex flex-row">
                 <div class="flex flex-col w-1/2">
                     <label for="name" class="text-gray-700">Name</label>
-                    <input type="text" name="name" id="name"
+                    <input type="text" name="name" id="name" [(ngModel)]="name" [min]="0" [required]="true"
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <p class="text-red-600">{{nameError}}</p>
                 </div>
                 <div class="flex flex-col w-1/2 ml-2">
                     <label for="fee" class="text-gray-700">Fee/Student</label>
-                    <input type="number" name="fee" id="fee"
-                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                </div>
-            </div>
-            <div class="flex flex-row mt-2">
-                <div class="flex flex-col w-full">
-                    <label for="status" class="text-gray-700">Status</label>
-                    <select name="status" id="status"
-                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                        <option value="1">Active</option>
-                        <option value="2">Inactive</option>
-                    </select>
+                    <input type="number" name="fee" [(ngModel)]="fee" id="fee"
+                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                    <p class="text-red-600">{{feeError}}</p>
                 </div>
             </div>
             <div class="flex flex-row mt-2">
                 <div class="flex flex-col w-full">
                     <label for="description" class="text-gray-700">Description</label>
-                    <textarea name="description" id="description" rows="3"
-                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                    <textarea name="description" [(ngModel)]="description" id="description" rows="3"
+                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                    <p class="text-red-600">{{descriptionError}}</p>
                 </div>
             </div>
             <span class="mt-6 text-base font-normal text-gray-500">Add some subjects with respective teacher into
@@ -54,7 +47,7 @@
                     <label for="teacher" class="text-gray-700">Teacher</label>
                     <select name="teacher" id="teacher" [(ngModel)]="teacher"
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                        <option *ngFor="let teacher of teachers;" [ngValue]="teacher">{{teacher}}</option>
+                        <option *ngFor="let teacher of teachers;" [ngValue]="teacher.email">{{teacher.name}} ({{teacher.email}})</option>
                     </select>
                 </div>
                 <div (click)="addSubject()" class="text-center my-auto mb-[0.10rem]">
@@ -98,7 +91,8 @@
                                     {{ addedSubject.teacher }}
                                 </td>
                                 <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                    <button (click)="removeSubject(addedSubject.subject)" type="button" class="rounded px-2 py-1 hover:text-gray-800">
+                                    <button (click)="removeSubject(addedSubject.subject)" type="button"
+                                        class="rounded px-2 py-1 hover:text-gray-800">
                                         <i class="fa-solid fa-trash"></i>
                                     </button>
                                 </td>

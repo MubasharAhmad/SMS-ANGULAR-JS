@@ -80,4 +80,8 @@ export class SubjectsComponent implements OnInit {
     return new Date(date).toLocaleDateString();
   }
 
+  handleEditClick = (id: string) => {
+    window.location.href = `/edit?id=${id}`;
+  }
+
 }

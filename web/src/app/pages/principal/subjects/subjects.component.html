@@ -75,9 +75,9 @@
                                         <button (click)="handleViewClick(subject.name, subject.description)" class="text-gray-400 hover:text-indigo-500 font-bold py-2 px-4 rounded">
                                             <i class="fa-solid fa-eye"></i>
                                         </button>
-                                        <button class="text-gray-400 hover:text-green-500 font-bold py-2 px-4 rounded">
+                                        <a class="text-gray-400 hover:text-green-500 font-bold py-2 px-4 rounded" routerLink="edit/{{subject._id}}">
                                             <i class="fa-solid fa-edit"></i>
-                                        </button>
+                                        </a>
                                         <button (click)="deleteSubject(subject.name)" class="text-gray-400 hover:text-red-500 font-bold py-2 px-4 rounded">
                                             <i class="fa-solid fa-xmark"></i>
                                         </button>

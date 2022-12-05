@@ -85,19 +85,40 @@ router.post(
     fetchuser,
     async (req, res) => {
         try {
-            const { oldName, newName } = req.body;
+            const userId = req.user.id;
+            const user = await User.findById(userId).select("-password");
+            const { id, name, description } = req.body;
             // check if subject exists
-            const subject = await Subject.findOne({ name : oldName });
+            const subject = await Subject.findById(id);
             if (!subject) {
                 return res.status(400).json({ success: false, msg: "Subject does not exist" });
             }
-            // update subject
-            await subject.updateOne
-            (
-                { name : oldName },
-                { $set: { name : newName } }
-            );
+            subject.name = name;
+            subject.lastModifiedBy = user.email;
+            subject.description = description;
+            subject.lastModifiedDate = Date.now();
+            await subject.save();
             return res.status(200).json({ success: true, msg: "Subject updated" });
+        } catch (err) {
+            console.error(err.message);
+            res.status(500).send("Internal Server Error");
+        }
+    }
+);
+
+// POST api/subject/getSubject
+router.post(
+    "/getSubject",
+    fetchuser,
+    async (req, res) => {
+        try {
+            const { id } = req.body;
+            // check if subject exists
+            const subject = await Subject.findById(id);
+            if (!subject) {
+                return res.status(400).json({ success: false, msg: "Subject does not exist" });
+            }
+            return res.status(200).json({ success: true, subject });
         } catch (err) {
             console.error(err.message);
             res.status(500).send("Internal Server Error");

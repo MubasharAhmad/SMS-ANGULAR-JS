@@ -9,6 +9,7 @@ export class EditSubjectComponent implements OnInit {
 
   subjectName: string = "";
   subjectDesc: string = "";
+  subjectId: string = "";
   subjectNameError: string = "";
   subjectDescError: string = "";
   isAlertHidden: boolean = true;
@@ -17,10 +18,32 @@ export class EditSubjectComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    // get parameters from url
-    const urlParams = new URLSearchParams(window.location.search);
-    const id = urlParams.get('id');
+    // get subject id from url
+    this.subjectId = window.location.href.split("/")[window.location.href.split("/").length - 1];
+    // get subject data from server
+    this.getSubject();
   }
+
+  getSubject = async () => {
+    const response = await fetch(`${environment.API_URL}/api/subject/getSubject`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'auth-token': `${localStorage.getItem('GFS-AUTH-TOKEN')}`
+      },
+      body: JSON.stringify({
+        id: this.subjectId
+      })
+    });
+    const data = await response.json();
+    if (data.success) {
+      this.subjectName = data.subject.name;
+      this.subjectDesc = data.subject.description;
+    } else {
+      this.onBack();
+    }
+  }
+
 
   onBack(): void {
     // TODO: Navigate to the previous page
@@ -28,45 +51,49 @@ export class EditSubjectComponent implements OnInit {
   }
 
   onSubmit = async () => {
-    if (this.subjectName === ""){
+    if (this.subjectName === "") {
       this.subjectNameError = "Name is required";
     }
-    else if (this.subjectName.length < 3){
+    else if (this.subjectName.length < 3) {
       this.subjectNameError = "Subject name must be atleast 3 characters long";
     }
-    else{
+    else {
       this.subjectNameError = "";
     }
 
-    if (this.subjectDesc === ""){
+    if (this.subjectDesc === "") {
       this.subjectDescError = "Subject description is required";
     }
-    else if (this.subjectDesc.length < 10){
+    else if (this.subjectDesc.length < 10) {
       this.subjectDescError = "Subject description must be atleast 10 characters long";
     }
     else {
       this.subjectDescError = "";
     }
 
-    if (this.subjectNameError === "" && this.subjectDescError === ""){
-      const data = await fetch(`${environment.API_URL}/api/subject/addSubject`, {
+    if (this.subjectNameError === "" && this.subjectDescError === "") {
+      const data = await fetch(`${environment.API_URL}/api/subject/updateSubject`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           "auth-token": `${localStorage.getItem("GFS-AUTH-TOKEN")}`
         },
         body: JSON.stringify({
+          id: this.subjectId,
           name: this.subjectName,
           description: this.subjectDesc
         })
       });
       const res = await data.json();
-      if (res.success){
-        this.alertMessage = "Subject added successfully";
+      if (res.success) {
+        this.alertMessage = "Subject updated successfully";
         this.alertType = "success";
         this.isAlertHidden = false;
         this.subjectName = "";
         this.subjectDesc = "";
+        setTimeout(() => {
+          this.onBack();
+        }, 1000);
       }
       else {
         this.alertMessage = res.msg;

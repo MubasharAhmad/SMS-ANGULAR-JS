@@ -18,6 +18,7 @@ app.use("/api/auth", require("./routes/auth"));
 app.use("/api/other", require("./routes/other"));
 app.use("/api/principal", require("./routes/principal"));
 app.use("/api/subject", require("./routes/subject"));
+app.use("/api/teacher", require("./routes/teacher"));
 
 app.get("/", (req, res) => {
     res.send("Hello World!");

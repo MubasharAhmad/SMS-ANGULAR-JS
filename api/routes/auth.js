@@ -186,7 +186,6 @@ router.post('/varificationEmail', async (req, res) => {
             date: Date.now()
         });
         await varification.save();
-
         let Body = `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
             <h1>Welcome To The GLORIOUS Future School</h1>
