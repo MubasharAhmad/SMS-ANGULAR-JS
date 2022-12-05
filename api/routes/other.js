@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
-const nodeMailer = require("nodemailer");
-
+const sendEmail = require("../js/emailer");
 
 const Message = require("../models/Message");
 
@@ -10,17 +9,6 @@ const Message = require("../models/Message");
 const API_URL = process.env.API_URL;
 const WEB_URL = process.env.WEB_URL;
 
-// for email sender
-const Transporter_Email = process.env.TRANSPORTER_EMAIL;
-const Trasnporter_Password = process.env.TRANSPORTER_PASSWORD;
-
-const transporter = nodeMailer.createTransport({
-    service: "gmail",
-    auth: {
-        user: Transporter_Email,
-        pass: Trasnporter_Password
-    }
-});
 
 //  POST api/other/message
 router.post(
@@ -38,19 +26,14 @@ router.post(
         }
         try {
             let success = false;
-            const mailOptions = {
-                from: Transporter_Email,
-                to: req.body.email,
-                subject: "Contact",
-                html: `<div style="text-align: center">
+            let Body = `<div style="text-align: center">
                 <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
                 <h1>The GLORIOUS Future School</h1>
                 <p>Your message has been recieved. Do not reply on this gmail. This is auto-reply to you. We will contact to you in 2-3 bussiness days. Please Wait!</p>
                 <p>Thanks for using our service.</p>
             </div>`
-            };
-            transporter.sendMail(mailOptions, function (error, info) {
-                if (error) {
+            sendEmail(req.body.email, "Contact", Body, (err, info) => {
+                if (err) {
                     res.status(500).send({ success, msg: "Internal Server Error" });
                 }
             });

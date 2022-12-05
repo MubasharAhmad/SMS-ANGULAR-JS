@@ -1,10 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-add-teacher',
-  templateUrl: './add-teacher.component.html'
+  selector: 'app-add-timetable',
+  templateUrl: './add-timetable.component.html'
 })
-export class AddTeacherComponent implements OnInit {
+export class AddTimetableComponent implements OnInit {
+  classes: any = [];
+  subjects: any = [];
+
   constructor() { }
 
   ngOnInit(): void {

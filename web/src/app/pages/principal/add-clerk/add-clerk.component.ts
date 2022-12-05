@@ -11,4 +11,10 @@ export class AddClerkComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onBack(): void {
+    window.history.back();
+  }
+
+  onSubmit(): void {
+  }
 }

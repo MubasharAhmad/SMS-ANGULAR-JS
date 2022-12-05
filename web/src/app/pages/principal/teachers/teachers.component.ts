@@ -12,4 +12,5 @@ export class TeachersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
 }

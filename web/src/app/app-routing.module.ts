@@ -36,6 +36,7 @@ import { AddTeacherComponent } from './pages/principal/add-teacher/add-teacher.c
 import { EditTeacherComponent } from './pages/principal/edit-teacher/edit-teacher.component';
 import { AddClerkComponent } from './pages/principal/add-clerk/add-clerk.component';
 import { EditClerkComponent } from './pages/principal/edit-clerk/edit-clerk.component';
+import { AddTimetableComponent } from './pages/principal/add-timetable/add-timetable.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -82,7 +83,14 @@ const routes: Routes = [
           { path: 'edit', component: EditClerkComponent, pathMatch: 'full' }
         ]
       },
-      { path: 'timetable', component: TimetableComponent, pathMatch: 'full' },
+      {
+        path: 'timetable',
+        children: [
+          { path: '', component: TimetableComponent, pathMatch: 'full' },
+          { path: 'add', component: AddTimetableComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditClassComponent, pathMatch: 'full' }
+        ]
+      },
       { path: 'attendances', component: AttendancesComponent, pathMatch: 'full' },
       { path: 'assignments', component: AssignmentsComponent, pathMatch: 'full' },
       { path: 'reports', component: ReportsComponent, pathMatch: 'full' },

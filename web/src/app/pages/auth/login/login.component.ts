@@ -9,7 +9,7 @@ export class LoginComponent implements OnInit {
 
   isAlertHidden: boolean = true;
   alertMessage: string = "";
-  alertType:string = "primary";
+  alertType: string = "primary";
 
   email: string = "";
   password: string = "";
@@ -59,12 +59,19 @@ export class LoginComponent implements OnInit {
       let res = await data.json();
       if (res.success) {
         localStorage.setItem("GFS-AUTH-TOKEN", res.authToken);
-        window.location.href = res.redirectUrl;
+        location.href = res.redirectUrl;
       }
       else {
         this.alertType = "danger";
         this.isAlertHidden = false;
         this.alertMessage = res.msg;
+        if (res.openActivationPage) {
+          setTimeout(() => {
+            // navigate to activation page
+            localStorage.setItem('email', this.email);
+            location.pathname = `/activateaccount`;
+          }, 1000);
+        }
       }
     }
     this.isSigning = false;

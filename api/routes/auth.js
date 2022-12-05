@@ -106,8 +106,11 @@ router.post(
         }
         try {
             let user = await User.findOne({ email: req.body.email });
-            if (!user || (user && user.isActived === false)) {
+            if (!user) {
                 return res.status(400).json({ success, msg: "Invalid Credentials" });
+            }
+            if (user.isActived === false) {
+                return res.status(400).json({ success, msg: "Your account is not actived", openActivationPage: true });
             }
             if (user.isRejected) {
                 return res.status(400).json({ success, msg: "Your application rejected from principal" });
@@ -123,7 +126,7 @@ router.post(
             success = true;
 
             // send email to user
-            body = `<div style="text-align: center">
+            let Body = `<div style="text-align: center">
                 <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
                 <h1>Welcome To The GLORIOUS Future School</h1>
                 <p>Make sure this is you</p>
@@ -140,7 +143,7 @@ router.post(
                     font-size: 16px;">Contact Us.</a></p>
                 <p>Thanks for using our service.</p>
             </div>`;
-            sendEmail(req.body.email, "Welcome", body, function (error, info) {
+            sendEmail(req.body.email, "Welcome", Body, function (error, info) {
                 if (error) {
                     console.log(error);
                     res.status(500).send({ success, msg: "Internal Server Error" });
@@ -184,7 +187,7 @@ router.post('/varificationEmail', async (req, res) => {
         });
         await varification.save();
 
-        body = `<div style="text-align: center">
+        let Body = `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
             <h1>Welcome To The GLORIOUS Future School</h1>
             <p>Make sure this is you</p>
@@ -202,7 +205,7 @@ router.post('/varificationEmail', async (req, res) => {
             <p>Thanks for using our service.</p>
         </div>`
 
-        sendEmail(req.body.email, "Verify Email", body, function (error, info) {
+        sendEmail(req.body.email, "Verify Email", Body, function (error, info) {
             if (error) {
                 console.log(error);
                 res.status(500).send({ success, msg: "Internal Server Error" });
@@ -265,7 +268,7 @@ router.post("/forgotPassword", async (req, res) => {
         });
 
         // send email to user
-        body = `<div style="text-align: center">
+        let Body = `<div style="text-align: center">
             <img src="${WEB_URL}/assets/images/logo.png" alt="logo" border="0">
             <h1>The GLORIOUS Future School</h1>
             <p>You are receiving this because you (or someone else) have requested the forgot of the password for your account.</p>
@@ -283,7 +286,7 @@ router.post("/forgotPassword", async (req, res) => {
             font-size: 16px;">Contact Us.</a></p>
             <p>Thanks for using our service.</p>
         </div>`
-        sendEmail(req.body.email, "Forgot Password", body, function (error, info) {
+        sendEmail(req.body.email, "Forgot Password", Body, function (error, info) {
             if (error) {
                 res.status(500).send({ success, msg: "Internal Server Error" });
             }

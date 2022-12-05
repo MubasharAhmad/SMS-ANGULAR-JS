@@ -1,1 +1,119 @@
-<p>timetable works!</p>
+<!-- create table in tailwind css -->
+<div class="bg-white mx-4 mt-6 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
+    <div class="mb-4 flex flex-col md:flex-row gap-2 md:justify-between">
+        <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Our Time Table</h3>
+            <span class="text-base font-normal text-gray-500">Here you will see time table of selected class.</span>
+        </div>
+        <div class="self-end my-2 md:my-auto">
+            <a routerLink="add" class="px-4 py-2 rounded-md btn-primary">
+                <i class="fa-solid fa-plus"></i> Add new time table
+            </a>
+        </div>
+    </div>
+    <div class="flex justify-between mt-8">
+        <div>
+            <label for="class" class="text-gray-700 mr-2">Select Class: </label>
+            <select
+                class="border rounded-md px-2 min-w-[100px] py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                <option *ngFor="let class of classes;" [ngValue]="class">{{class}}</option>
+            </select>
+        </div>
+        <!-- button for edit and delete -->
+        <div class="flex flex-row ml-2" *ngIf="classes.length > 0 && selectedClass !== ''">
+            <button class="px-4 py-2 rounded-md btn-success">
+                <i class="fa-solid fa-edit"></i>
+            </button>
+            <button class="px-4 py-2 rounded-md btn-danger ml-2">
+                <i class="fa-solid fa-trash"></i>
+            </button>
+        </div>
+    </div>
+    <div class="flex flex-col mt-2" *ngIf="classes.length > 0 && selectedClass !== ''">
+        <div class="overflow-x-auto rounded-lg">
+            <div class="align-middle inline-block min-w-full">
+                <div class="shadow overflow-hidden sm:rounded-lg">
+                    <table class="min-w-full divide-y divide-gray-200">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Time
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Monday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Tuesday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Wednesday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Thursday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Friday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Saturday
+                                </th>
+                                <th scope="col"
+                                    class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                    Sunday
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody class="bg-white">
+                            <ng-container *ngIf="timeTable.length > 0;">
+                                <tr *ngFor="let period of timeTable;">
+                                    <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
+                                        {{ period.time }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.monday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.tuesday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.wednesday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.thursday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.friday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.saturday }}
+                                    </td>
+                                    <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
+                                        {{ period.sunday }}
+                                    </td>
+                                </tr>
+                            </ng-container>
+                            <ng-container *ngIf="timeTable.length === 0;">
+                                <tr>
+                                    <td colspan="8"
+                                        class="p-4 text-center whitespace-nowrap text-sm font-normal text-gray-900">
+                                        No timeTable found
+                                    </td>
+                                </tr>
+                            </ng-container>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="text-center my-2" *ngIf="classes.length === 0 || selectedClass === ''">
+        <span>No time table found</span>
+    </div>
+</div>

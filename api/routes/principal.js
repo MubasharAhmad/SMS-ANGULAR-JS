@@ -52,11 +52,10 @@ router.post(
             user.isVerified = true;
             await user.save();
             // send email to user
-            const subject = "Application Accepted";
-            const body = `<h1>Dear ${user.name},</h1>
+            let body = `<h1>Dear ${user.name},</h1>
             <p>Your application has been accepted. You can now login to the system.</p>
             <p>Thank you.</p>`;
-            sendEmail(user.email, subject, body);
+            sendEmail(user.email, "Application Accepted", body);
 
             return res.status(200).json({ success: true, msg: "User verified" });
         } catch (err) {
@@ -81,11 +80,10 @@ router.post(
             user.isRejected = true;
             await user.save();
             // send email to user
-            const subject = "Application Rejected";
-            const body = `<h1>Dear ${user.name},</h1>
+            let Body = `<h1>Dear ${user.name},</h1>
             <p>Your application has been rejected. Please contact the school for more information.</p>
             <p>Thank you.</p>`;
-            sendEmail(user.email, subject, body);
+            sendEmail(user.email,  "Application Rejected", Body);
             
             return res.status(200).json({ success: true, msg: "User's application rejected" });
         } catch (err) {

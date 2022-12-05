@@ -1,13 +1,13 @@
 <!-- create table in tailwind css -->
 <div class="bg-white mx-4 mt-6 shadow rounded-lg p-4 sm:p-6 xl:p-8 ">
-    <div class="mb-4 flex items-center justify-between">
+    <div class="mb-4 flex flex-col md:flex-row gap-2 md:justify-between">
         <div>
             <h3 class="text-xl font-bold text-gray-900 mb-2">Our Teachers</h3>
             <span class="text-base font-normal text-gray-500">This is a list of our beloved teachers.</span>
         </div>
-        <div>
+        <div class="self-end my-2 md:my-auto">
             <a routerLink="add" class="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
-                Add new teacher
+                <i class="fa-solid fa-plus"></i> Add new teacher
             </a>
         </div>
     </div>
