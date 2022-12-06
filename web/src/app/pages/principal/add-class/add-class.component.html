@@ -1,3 +1,5 @@
+<app-alert [isHidden]=isAlertHidden message="{{alertMessage}}" type="{{alertType}}" (close)="handleClose($event)">
+</app-alert>
 <div class="mx-2 mt-6 md:mx-5 bg-white p-3 rounded-lg shadow-md overflow-x-auto sm:p-6 xl:p-8">
     <button (click)="onBack()" class="mb-3 text-gray-500 hover:text-gray-700 focus:outline-none focus:text-gray-700">
         <i class="fa-solid fa-circle-arrow-left"></i> Back
@@ -20,7 +22,7 @@
                 <div class="flex flex-col w-1/2 ml-2">
                     <label for="fee" class="text-gray-700">Fee/Student</label>
                     <input type="number" name="fee" [(ngModel)]="fee" id="fee"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
                     <p class="text-red-600">{{feeError}}</p>
                 </div>
             </div>
@@ -28,7 +30,7 @@
                 <div class="flex flex-col w-full">
                     <label for="description" class="text-gray-700">Description</label>
                     <textarea name="description" [(ngModel)]="description" id="description" rows="3"
-                    class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
+                        class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"></textarea>
                     <p class="text-red-600">{{descriptionError}}</p>
                 </div>
             </div>
@@ -47,7 +49,8 @@
                     <label for="teacher" class="text-gray-700">Teacher</label>
                     <select name="teacher" id="teacher" [(ngModel)]="teacher"
                         class="border rounded-md px-2 py-1 mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent">
-                        <option *ngFor="let teacher of teachers;" [ngValue]="teacher.email">{{teacher.name}} ({{teacher.email}})</option>
+                        <option *ngFor="let teacher of teachers;" [ngValue]="teacher.email">{{teacher.name}}
+                            ({{teacher.email}})</option>
                     </select>
                 </div>
                 <div (click)="addSubject()" class="text-center my-auto mb-[0.10rem]">

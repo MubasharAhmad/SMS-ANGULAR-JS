@@ -1,17 +1,6 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const SubjectTeacherSchema = new Schema({
-    subject: {
-        type: Schema.Types.ObjectId,
-        ref: 'Subject'
-    },
-    teacher: {
-        type: Schema.Types.ObjectId,
-        ref: 'User'
-    }
-});
-
 const ClassSchema = new Schema({
     name: {
         type: String,
@@ -21,19 +10,49 @@ const ClassSchema = new Schema({
         type: String,
         required: true
     },
+    feeperstudent: {
+        type: Number,
+        required: true
+    },
     students: [{
         type: Schema.Types.ObjectId,
         ref: 'Student',
         default: []
     }],
-    subjects: [SubjectTeacherSchema],
-    feeperstudent: {
-        type: Number,
-        required: true
+    subjects: {
+        type: [{
+            subject: {
+                type: Schema.Types.ObjectId,
+                ref: 'Subject'
+            },
+            teacher: {
+                type: Schema.Types.ObjectId,
+                ref: 'User'
+            }
+        }],
+        default: []
     },
-    date: {
+    createdDate: {
         type: Date,
         default: Date.now
+    },
+    addedBy: {
+        // email of the user who added the class
+        type: String,
+        required: true
+    },
+    lastModifiedBy: {
+        // email of the user who last modified the class
+        type: String,
+        required: true
+    },
+    lastModifiedDate: {
+        type: Date,
+        default: Date.now
+    },
+    isDeleted: {
+        type: Boolean,
+        default: false
     }
 })
 

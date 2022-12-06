@@ -10,6 +10,10 @@ export class AddClassComponent implements OnInit {
   subjects: any = [];
   addedSubjects: any = [];
 
+  isAlertHidden: boolean = true;
+  alertMessage: string = "Registration Successful";
+  alertType: string = "primary";
+
   name: string = "";
   nameError: string = "";
   fee: number = 0;
@@ -77,7 +81,7 @@ export class AddClassComponent implements OnInit {
     this.subjects.push(subject);
   }
 
-  onSubmit(): void {
+  onSubmit = async () => {
     if (this.name === "" ){
       this.nameError = "Name is required";
     }
@@ -106,6 +110,34 @@ export class AddClassComponent implements OnInit {
     }
 
     if (this.nameError === "" && this.feeError === "" && this.descriptionError === "") {
+      const response = await fetch(`${environment.API_URL}/api/class/addClass`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'auth-token': `${localStorage.getItem('GFS-AUTH-TOKEN')}`
+        },
+        body: JSON.stringify({
+          name: this.name,
+          fee: this.fee,
+          description: this.description,
+          addedSubjects: this.addedSubjects
+        })
+      });
+      const data = await response.json();
+      if (data.success) {
+        this.isAlertHidden = false;
+        this.alertMessage = "Class added successfully";
+        this.alertType = "success";
+      }
+      else {
+        this.isAlertHidden = false;
+        this.alertMessage = data.msg;
+        this.alertType = "danger";
+      }
     }
+  }
+
+  handleClose($event: boolean) {
+    this.isAlertHidden = $event;
   }
 }
