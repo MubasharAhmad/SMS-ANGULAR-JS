@@ -51,6 +51,9 @@ import { AddClerkComponent } from './pages/principal/add-clerk/add-clerk.compone
 import { EditClerkComponent } from './pages/principal/edit-clerk/edit-clerk.component';
 import { AddTimetableComponent } from './pages/principal/add-timetable/add-timetable.component';
 import { EditTimetableComponent } from './pages/principal/edit-timetable/edit-timetable.component';
+import { StudentsComponent } from './pages/principal/students/students.component';
+import { AddStudentComponent } from './pages/principal/add-student/add-student.component';
+import { EditStudentComponent } from './pages/principal/edit-student/edit-student.component';
 
 @NgModule({
   declarations: [
@@ -99,6 +102,9 @@ import { EditTimetableComponent } from './pages/principal/edit-timetable/edit-ti
     EditClerkComponent,
     AddTimetableComponent,
     EditTimetableComponent,
+    StudentsComponent,
+    AddStudentComponent,
+    EditStudentComponent,
   ],
   imports: [
     BrowserModule,

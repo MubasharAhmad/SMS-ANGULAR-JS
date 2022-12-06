@@ -25,6 +25,9 @@ export class PrincipalComponent implements OnInit {
       else if (pathnames[2] === "teachers") {
         this.heading = "Teachers";
       }
+      else if (pathnames[2] === "students") {
+        this.heading = "Students";
+      }
       else if (pathnames[2] === "clerks") {
         this.heading = "Clerks";
       }

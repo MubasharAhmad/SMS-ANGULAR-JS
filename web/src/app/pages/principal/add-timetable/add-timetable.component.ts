@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 export class AddTimetableComponent implements OnInit {
   classes: any = [];
   subjects: any = [];
+  teachers: any = [];
+  timeTable: any = [];
 
   constructor() { }
 
