@@ -39,6 +39,8 @@ import { EditClerkComponent } from './pages/principal/edit-clerk/edit-clerk.comp
 import { AddTimetableComponent } from './pages/principal/add-timetable/add-timetable.component';
 import { StudentsComponent } from './pages/principal/students/students.component';
 import { AddStudentComponent } from './pages/principal/add-student/add-student.component';
+import { AddAttendanceComponent } from './pages/principal/add-attendance/add-attendance.component';
+import { EditAttendanceComponent } from './pages/principal/edit-attendance/edit-attendance.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
@@ -101,7 +103,14 @@ const routes: Routes = [
           { path: 'edit', component: EditClassComponent, pathMatch: 'full' }
         ]
       },
-      { path: 'attendances', component: AttendancesComponent, pathMatch: 'full' },
+      {
+        path: 'attendances',
+        children: [
+          { path: '', component: AttendancesComponent, pathMatch: 'full' },
+          { path: 'add', component: AddAttendanceComponent, pathMatch: 'full' },
+          { path: 'edit', component: EditAttendanceComponent, pathMatch: 'full' }
+        ]
+      },
       { path: 'assignments', component: AssignmentsComponent, pathMatch: 'full' },
       { path: 'reports', component: ReportsComponent, pathMatch: 'full' },
       { path: 'fees', component: FeesComponent, pathMatch: 'full' },

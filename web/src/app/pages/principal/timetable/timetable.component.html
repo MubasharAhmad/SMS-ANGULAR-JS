@@ -38,7 +38,7 @@
                             <tr>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                    Time
+                                    Period No
                                 </th>
                                 <th scope="col"
                                     class="p-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -74,28 +74,56 @@
                             <ng-container *ngIf="timeTable.length > 0;">
                                 <tr *ngFor="let period of timeTable;">
                                     <td class="p-4 whitespace-nowrap text-sm font-normal text-gray-900">
-                                        {{ period.time }}
+                                        {{ period.periodNo }}
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.monday }}
+                                        <div>
+                                            {{ period.monday? period.monday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.monday?
+                                            '('+period.monday[1]+' - '+period.monday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.tuesday }}
+                                        <div>
+                                            {{ period.tuesday? period.tuesday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.tuesday?
+                                            '('+period.tuesday[1]+' - '+period.tuesday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.wednesday }}
+                                        <div>
+                                            {{ period.wednesday? period.wednesday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.wednesday?
+                                            '('+period.wednesday[1]+' - '+period.wednesday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.thursday }}
+                                        <div>
+                                            {{ period.thursday? period.thursday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.thursday?
+                                            '('+period.thursday[1]+' - '+period.thursday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.friday }}
+                                        <div>
+                                            {{ period.friday? period.friday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.friday?
+                                            '('+period.friday[1]+' - '+period.friday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.saturday }}
+                                        <div>
+                                            {{ period.saturday? period.saturday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.saturday?
+                                            '('+period.saturday[1]+' - '+period.saturday[2]+')':'' }}</span>
                                     </td>
                                     <td class="p-4 whitespace-nowrap text-sm font-semibold text-gray-900">
-                                        {{ period.sunday }}
+                                        <div>
+                                            {{ period.sunday? period.sunday[0]:' -- ' }}
+                                        </div>
+                                        <span class="text-xs text-gray-800">{{ period.sunday?
+                                            '('+period.sunday[1]+' - '+period.sunday[2]+')':'' }}</span>
                                     </td>
                                 </tr>
                             </ng-container>

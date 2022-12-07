@@ -5,17 +5,17 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './timetable.component.html',
 })
 export class TimetableComponent implements OnInit {
-  classes: any = [];
-  selectedClass: string = "";
+  classes: any = ["9th"];
+  selectedClass: string = "Pth";
   timeTable: any = [{
-    time: "8:00 - 8:45 PM",
-    monday: "English",
-    tuesday: "English",
-    wednesday: "English",
-    thursday: "English",
-    friday: "English",
-    saturday: "English",
-    sunday: ""
+    periodNo: "1",
+    monday: ["English","10:00 pm","11:00 pm"],
+    tuesday: ["English","10:00 pm","11:00 pm"],
+    wednesday: ["English","10:00 pm","11:00 pm"],
+    thursday: ["English","10:00 pm","11:00 pm"],
+    friday: ["English","10:00 pm","11:00 pm"],
+    saturday: null,
+    sunday: null
   }];
 
   constructor() { }

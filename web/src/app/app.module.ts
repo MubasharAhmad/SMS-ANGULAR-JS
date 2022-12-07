@@ -54,6 +54,8 @@ import { EditTimetableComponent } from './pages/principal/edit-timetable/edit-ti
 import { StudentsComponent } from './pages/principal/students/students.component';
 import { AddStudentComponent } from './pages/principal/add-student/add-student.component';
 import { EditStudentComponent } from './pages/principal/edit-student/edit-student.component';
+import { AddAttendanceComponent } from './pages/principal/add-attendance/add-attendance.component';
+import { EditAttendanceComponent } from './pages/principal/edit-attendance/edit-attendance.component';
 
 @NgModule({
   declarations: [
@@ -105,6 +107,8 @@ import { EditStudentComponent } from './pages/principal/edit-student/edit-studen
     StudentsComponent,
     AddStudentComponent,
     EditStudentComponent,
+    AddAttendanceComponent,
+    EditAttendanceComponent,
   ],
   imports: [
     BrowserModule,

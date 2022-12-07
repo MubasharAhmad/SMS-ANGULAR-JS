@@ -20,6 +20,7 @@ app.use("/api/principal", require("./routes/principal"));
 app.use("/api/subject", require("./routes/subject"));
 app.use("/api/teacher", require("./routes/teacher"));
 app.use("/api/class", require("./routes/class"));
+app.use("/api/clerk", require("./routes/clerk"));
 
 app.get("/", (req, res) => {
     res.send("Hello World!");
@@ -28,4 +29,3 @@ app.get("/", (req, res) => {
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
 });
-

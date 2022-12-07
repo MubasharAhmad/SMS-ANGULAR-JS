@@ -5,6 +5,15 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './attendances.component.html',
 })
 export class AttendancesComponent implements OnInit {
+  attendances: any = [
+    {
+      presents: 20,
+      absences: 10,
+      leaves: 5,
+      total: 35,
+      date: '2020-01-01',
+    }
+  ];
 
   constructor() { }
 

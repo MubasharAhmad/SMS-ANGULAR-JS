@@ -5,6 +5,13 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './add-teacher.component.html'
 })
 export class AddTeacherComponent implements OnInit {
+  name: any = "";
+  nameError: any = "";
+  email: any = "";
+  emailError: any = "";
+  description: any = "";
+  descriptionError: any = "";
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -15,5 +22,20 @@ export class AddTeacherComponent implements OnInit {
   }
 
   onSubmit(): void {
+    this.nameError = "";
+    this.emailError = "";
+    this.descriptionError = "";
+    if (this.name == "") {
+      this.nameError = "Name is required";
+    }
+    if (this.email == "") {
+      this.emailError = "Email is required";
+    }
+    if (this.description == "") {
+      this.descriptionError = "Description is required";
+    }
+    if (this.name != "" && this.email != "" && this.description != "") {
+      console.log("Submitted");
+    }
   }
 }

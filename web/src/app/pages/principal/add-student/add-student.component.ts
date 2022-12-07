@@ -33,6 +33,36 @@ export class AddStudentComponent implements OnInit {
   }
 
   onSubmit(): void {
-    
+    this.nameError = "";
+    this.fatherNameError = "";
+    this.occupationError = "";
+    this.phoneError = "";
+    this.selectedClassError = "";
+    this.rollNoError = "";
+    this.addressError = "";
+    if (this.name == "") {
+      this.nameError = "Name is required";
+    }
+    if (this.fatherName == "") {
+      this.fatherNameError = "Father Name is required";
+    }
+    if (this.occupation == "") {
+      this.occupationError = "Occupation is required";
+    }
+    if (this.phone == "") {
+      this.phoneError = "Phone is required";
+    }
+    if (this.selectedClass == "") {
+      this.selectedClassError = "Class is required";
+    }
+    if (this.rollNo == "") {
+      this.rollNoError = "Roll No is required";
+    }
+    if (this.address == "") {
+      this.addressError = "Address is required";
+    }
+    if (this.name != "" && this.fatherName != "" && this.occupation != "" && this.phone != "" && this.selectedClass != "" && this.rollNo != "" && this.address != "") {
+      console.log("Submitted");
+    }
   }
 }
