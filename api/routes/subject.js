@@ -13,7 +13,7 @@ router.get(
     async (req, res) => {
         try {
             // get all subjects
-            const subjects = await Subject.find({ isDeleted: false });
+            const subjects = await Subject.find();
             if (!subjects) {
                 return res.status(400).json({ success: false, msg: "No subjects found" });
             }
@@ -69,8 +69,7 @@ router.post(
                 return res.status(400).json({ success: false, msg: "Subject does not exist" });
             }
             // delete subject
-            subject.isDeleted = true;
-            await subject.save();
+            await subject.remove();
             return res.status(200).json({ success: true, msg: "Subject deleted" });
         } catch (err) {
             console.error(err.message);
