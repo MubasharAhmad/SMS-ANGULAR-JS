@@ -60,7 +60,7 @@ const routes: Routes = [
         children: [
           { path: '', component: ClassesComponent, pathMatch: 'full' },
           { path: 'add', component: AddClassComponent, pathMatch: 'full' },
-          { path: 'edit', component: EditClassComponent, pathMatch: 'full' }
+          { path: 'edit/:id', component: EditClassComponent, pathMatch: 'full' }
         ]
       },
       {
