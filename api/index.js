@@ -21,6 +21,7 @@ app.use("/api/subject", require("./routes/subject"));
 app.use("/api/teacher", require("./routes/teacher"));
 app.use("/api/class", require("./routes/class"));
 app.use("/api/clerk", require("./routes/clerk"));
+app.use("/api/student", require("./routes/student"));
 
 app.get("/", (req, res) => {
     res.send("Hello World!");

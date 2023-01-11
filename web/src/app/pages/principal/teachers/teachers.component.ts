@@ -23,7 +23,6 @@ export class TeachersComponent implements OnInit {
       }
     });
     const data = await response.json();
-    console.log(data);
     this.teachers = data.teachers;
   }
 }

@@ -11,10 +11,11 @@ export class ClerksComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    this.getAllClerks();
   }
 
   getAllClerks = async () => {
-    const response = await fetch(`${environment.API_URL}/api/teacher/getAllTeachers`, {
+    const response = await fetch(`${environment.API_URL}/api/clerk/getAllClerks`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -22,7 +23,6 @@ export class ClerksComponent implements OnInit {
       }
     });
     const data = await response.json();
-    console.log(data);
     this.clerks = data.clerks;
   }
 }

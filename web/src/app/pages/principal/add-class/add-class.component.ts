@@ -128,6 +128,9 @@ export class AddClassComponent implements OnInit {
         this.isAlertHidden = false;
         this.alertMessage = "Class added successfully";
         this.alertType = "success";
+        setTimeout(() => {
+          this.onBack();
+        }, 1000);
       }
       else {
         this.isAlertHidden = false;

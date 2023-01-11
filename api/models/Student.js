@@ -6,10 +6,6 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
-    age: {
-        type: Number,
-        required: true
-    },
     fathername: {
         type: String,
         required: true
@@ -22,7 +18,7 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
-    rollNumber: {
+    rollnumber: {
         type: Number,
         required: true
     },
@@ -30,11 +26,20 @@ const StudentSchema = new Schema({
         type: String,
         required: true
     },
-    classes: [{
+    classId: {
         type: Schema.Types.ObjectId,
-        ref: 'Class'
-    }],
-    date: {
+        ref: 'Class',
+        required: true
+    },
+    addedBy: {
+        type: String,
+        required: true
+    },
+    addDate: {
+        type: Date,
+        default: Date.now
+    },
+    modifiedDate: {
         type: Date,
         default: Date.now
     }
